@@ -1,2 +1,0 @@
-v1.0.2:
-- Fixed crash provoked by Salmon Run screen when wildcard schedule appear
