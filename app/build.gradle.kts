@@ -4,7 +4,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.compose.compiler)
-    id("org.jetbrains.kotlin.plugin.serialization") version "2.3.0"
+    id("org.jetbrains.kotlin.plugin.serialization") version "2.3.10"
 }
 
 android {
@@ -22,8 +22,8 @@ android {
         applicationId = "com.powerdino.splatoon3_companion"
         minSdk = 24
         targetSdk = 36
-        versionCode = 15
-        versionName = "1.0.2"
+        versionCode = 16
+        versionName = "1.0.3"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
