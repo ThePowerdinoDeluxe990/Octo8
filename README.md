@@ -5,6 +5,7 @@ An app to check current splatoon 3 map schedules made with kotlin and jetpack co
 
 # Download:
 [<img src="./app/get-it-on-github.webp" width="150">](https://github.com/ThePowerdinoDeluxe990/Octo8/releases)
+[<img src="./app/badge_obtainium.webp" width="150">](obtainium://add/https://github.com/ThePowerdinoDeluxe990/Octo8)
 
 
 
