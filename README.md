@@ -1,7 +1,9 @@
-# Octo8
-<img src="./app/src/main/ic_launcher-playstore.png " alt="App Icon" width="100" height="100"/>
+<p align=center>
+  <img src="./app/src/main/ic_launcher-playstore.png " alt="App Icon" width="100" height="100"/>
+</p>
 
-An app to check current splatoon 3 map schedules made with kotlin and jetpack compose
+<h1 align=center>Octo8</h1>
+<p align=center>An app to check current splatoon 3 map schedules made with kotlin and jetpack compose</p>
 
 # Download:
 [<img src="./app/get-it-on-github.webp" width="150">](https://github.com/ThePowerdinoDeluxe990/Octo8/releases)
