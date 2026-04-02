@@ -13,9 +13,9 @@ import androidx.compose.ui.unit.dp
 import com.powerdino.splatoon3_companion.data.lists.listOfMpMaps
 import com.powerdino.splatoon3_companion.model.Normal
 import com.powerdino.splatoon3_companion.ui.composables.MapCard
+import com.powerdino.splatoon3_companion.ui.composables.ModesAndBosses
 import com.powerdino.splatoon3_companion.ui.composables.SchedulesTimeComposables
 import com.powerdino.splatoon3_companion.ui.composables.TextSchedule
-import com.powerdino.splatoon3_companion.ui.composables.ModesAndBosses
 
 @Composable
 fun XBattlesScreen(

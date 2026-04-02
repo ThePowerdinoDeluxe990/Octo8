@@ -1,9 +1,6 @@
-package com.powerdino.splatoon3_companion.ui.screens
+package com.powerdino.splatoon3_companion.ui.screens.routes
 
 import com.powerdino.splatoon3_companion.R
-import com.powerdino.splatoon3_companion.ui.screens.routes.CompetitiveBattlesScreen
-import com.powerdino.splatoon3_companion.ui.screens.routes.RegularBattlesScreen
-import com.powerdino.splatoon3_companion.ui.screens.routes.SalmonRunScreen
 import kotlinx.serialization.Serializable
 
 @Serializable

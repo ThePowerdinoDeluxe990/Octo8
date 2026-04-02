@@ -39,7 +39,8 @@ import com.powerdino.splatoon3_companion.model.Data
 import com.powerdino.splatoon3_companion.model.resources_versus.ResourcesVersus
 import com.powerdino.splatoon3_companion.model.salmon_run.Salmon
 import com.powerdino.splatoon3_companion.model.salmon_run.resources.SalmonResources
-import com.powerdino.splatoon3_companion.ui.composables.AboutDialog
+import com.powerdino.splatoon3_companion.ui.screens.routes.Aboutscreen
+import com.powerdino.splatoon3_companion.ui.screens.routes.BottomScreens
 import com.powerdino.splatoon3_companion.ui.screens.routes.CompetitiveBattlesScreen
 import com.powerdino.splatoon3_companion.ui.screens.routes.RegularBattlesScreen
 import com.powerdino.splatoon3_companion.ui.screens.routes.SalmonRunScreen
@@ -58,10 +59,10 @@ fun SuccessScreen(
     var bottomSelected by rememberSaveable {
         mutableIntStateOf(0)
     }
-    var openDialog by remember { mutableStateOf(false)}
 
+    var disableBottomBar by remember { mutableStateOf(false) }
     var expanded by remember { mutableStateOf(false) }
-    
+
     val bottomNavItems = listOf(
         BottomScreens.Versus,
         BottomScreens.Competitive,
@@ -70,73 +71,73 @@ fun SuccessScreen(
 
     Scaffold (
         topBar = {
-            TopAppBar(
-                colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.primaryContainer,
-                    titleContentColor = MaterialTheme.colorScheme.primary,
-                ),
-                title = {
-                    Text(
-                        stringResource(R.string.app_name),
-                        maxLines = 1,
-                        overflow = TextOverflow.Ellipsis
-                    )
-                },
-                actions = {
-                    IconButton(
-                        onClick = {
-                            expanded = !expanded
-                        }
-                    ) {
-                        Icon(
-                            imageVector = Icons.Default.MoreVert,
-                            contentDescription = "Options"
+            if(!disableBottomBar) {
+                TopAppBar(
+                    colors = TopAppBarDefaults.topAppBarColors(
+                        containerColor = MaterialTheme.colorScheme.primaryContainer,
+                        titleContentColor = MaterialTheme.colorScheme.primary,
+                    ),
+                    title = {
+                        Text(
+                            stringResource(R.string.app_name),
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis
                         )
-                    }
-                    DropdownMenu(
-                        expanded = expanded,
-                        onDismissRequest = { expanded = false }
-                    ) {
-                        DropdownMenuItem(
-                            text = { Text(stringResource(R.string.menu_about)) },
+                    },
+                    actions = {
+                        IconButton(
                             onClick = {
-                                openDialog = true
+                                expanded = !expanded
                             }
-                        )
-                        if(openDialog) {
-                            AboutDialog {
-                                openDialog = false
-                                expanded = false
-                            }
-                        }
-
-                    }
-                }
-            )
-        },
-        bottomBar = {
-            NavigationBar {
-                bottomNavItems.forEachIndexed { index, item ->
-                    NavigationBarItem(
-                        selected = bottomSelected == index,
-                        onClick = {
-                            bottomSelected = index
-                            backStack.add(item.route)
-                        },
-                        label = {
-                            Text(stringResource(item.title))
-                        },
-                        alwaysShowLabel = true,
-                        icon = {
+                        ) {
                             Icon(
-                                painter = if (index ==  bottomSelected) {
-                                    painterResource( id=item.selectedIcon)
-                                } else painterResource(item.unselectedIcon),
-                                contentDescription = stringResource(item.title),
-                                modifier = Modifier.size(24.dp)
+                                imageVector = Icons.Default.MoreVert,
+                                contentDescription = "Options"
                             )
                         }
-                    )
+                        DropdownMenu(
+                            expanded = expanded,
+                            onDismissRequest = { expanded = false }
+                        ) {
+                            DropdownMenuItem(
+                                text = { Text(stringResource(R.string.menu_about)) },
+                                onClick = {
+                                    backStack.add(Aboutscreen)
+                                    disableBottomBar = true
+                                }
+                            )
+
+                        }
+                    }
+                )
+            }
+        },
+            bottomBar = {
+                if(!disableBottomBar) {
+                NavigationBar {
+
+                    bottomNavItems.forEachIndexed { index, item ->
+                        NavigationBarItem(
+                            selected = bottomSelected == index,
+                            onClick = {
+                                bottomSelected = index
+                                backStack.add(item.route)
+                            },
+                            label = {
+                                Text(stringResource(item.title))
+                            },
+                            alwaysShowLabel = true,
+                            icon = {
+                                Icon(
+                                    painter = if (index == bottomSelected) {
+                                        painterResource(id = item.selectedIcon)
+                                    } else painterResource(item.unselectedIcon),
+                                    contentDescription = stringResource(item.title),
+                                    modifier = Modifier.size(24.dp)
+                                )
+                            }
+                        )
+                    }
                 }
             }
         }
@@ -146,13 +147,19 @@ fun SuccessScreen(
             onBack ={
                backStack.removeLastOrNull()
                 when(backStack.last()){
-                   RegularBattlesScreen -> bottomSelected =0
-                   CompetitiveBattlesScreen ->  bottomSelected = 1
+                    RegularBattlesScreen -> bottomSelected =0
+                    CompetitiveBattlesScreen ->  bottomSelected = 1
                     SalmonRunScreen -> bottomSelected = 2
                }
              },
             entryProvider = entryProvider {
+                entry<Aboutscreen> {
+                    AboutScreen(
+                        {backStack.removeLastOrNull()}
+                    )
+                }
                 entry<RegularBattlesScreen>{
+                    disableBottomBar= false
                     Box(
                         modifier = Modifier.padding(innerPadding)
                     ){
@@ -163,6 +170,7 @@ fun SuccessScreen(
                     }
                 }
                 entry<CompetitiveBattlesScreen>{
+                    disableBottomBar= false
                     Box(
                         modifier = Modifier.padding(innerPadding)
                     ){
@@ -172,6 +180,8 @@ fun SuccessScreen(
                     }
                 }
                 entry<SalmonRunScreen>{
+
+                    disableBottomBar= false
                     Box(
                         modifier = Modifier.padding(innerPadding)
                     ){
