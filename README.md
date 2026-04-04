@@ -10,7 +10,7 @@
 [<img src="./app/badge_obtainium.webp" width="150">](obtainium://add/https://github.com/ThePowerdinoDeluxe990/Octo8)
 [<img src="./app/fdroid.png" width="150">](https://f-droid.org/en/packages/com.powerdino.splatoon3_companion/)
 
-Debug releases:<a href="https://nightly.link/ThePowerdinoDeluxe990/Octo8/workflows/main/master">Here</i>
+Debug releases:<a href="https://nightly.link/ThePowerdinoDeluxe990/Octo8/workflows/main/master"> Here</i>
 
 
 ## Screenshots:
