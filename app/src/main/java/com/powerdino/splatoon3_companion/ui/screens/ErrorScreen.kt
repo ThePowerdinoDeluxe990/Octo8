@@ -8,7 +8,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Error
+import androidx.compose.material.icons.filled.SignalWifiConnectedNoInternet4
+import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -22,7 +23,9 @@ import androidx.compose.ui.unit.dp
 import com.powerdino.splatoon3_companion.R
 
 @Composable
-fun ErrorScreen(){
+fun ErrorScreen(
+    tryAgain:() -> Unit
+){
 
     Scaffold { innerPadding ->
         Column (
@@ -33,7 +36,7 @@ fun ErrorScreen(){
             horizontalAlignment = Alignment.CenterHorizontally
         ){
             Icon(
-                imageVector = Icons.Filled.Error,
+                imageVector = Icons.Filled.SignalWifiConnectedNoInternet4,
                 tint = MaterialTheme.colorScheme.error,
                 contentDescription = "Error",
                 modifier = Modifier.size(64.dp)
@@ -43,6 +46,12 @@ fun ErrorScreen(){
                 text = stringResource(R.string.Error),
                 style = MaterialTheme.typography.titleLarge
             )
+
+            Button(
+                onClick = tryAgain
+            ){
+                Text("Try Again")
+            }
         }
     }
 }
@@ -63,5 +72,5 @@ fun ErrorScreen(){
 @Preview
 @Composable
 fun PreviewErrorScreen(){
-    ErrorScreen()
+    ErrorScreen({})
 }

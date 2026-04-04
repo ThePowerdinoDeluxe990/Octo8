@@ -12,13 +12,11 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
@@ -31,6 +29,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.navigation3.runtime.NavBackStack
+import androidx.navigation3.runtime.NavKey
 import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.ui.NavDisplay
@@ -52,7 +52,8 @@ fun SuccessScreen(
     splatoonData: Data,
     salmonResources: SalmonResources,
     salmonSchedules: Salmon,
-    versusResources: ResourcesVersus
+    versusResources: ResourcesVersus,
+    mainBackStack: NavBackStack<NavKey>
 ){
     val backStack = rememberNavBackStack(RegularBattlesScreen)
 
@@ -60,7 +61,6 @@ fun SuccessScreen(
         mutableIntStateOf(0)
     }
 
-    var disableBottomBar by remember { mutableStateOf(false) }
     var expanded by remember { mutableStateOf(false) }
 
     val bottomNavItems = listOf(
@@ -71,73 +71,64 @@ fun SuccessScreen(
 
     Scaffold (
         topBar = {
-            if(!disableBottomBar) {
-                TopAppBar(
-                    colors = TopAppBarDefaults.topAppBarColors(
-                        containerColor = MaterialTheme.colorScheme.primaryContainer,
-                        titleContentColor = MaterialTheme.colorScheme.primary,
-                    ),
-                    title = {
-                        Text(
-                            stringResource(R.string.app_name),
-                            maxLines = 1,
-                            overflow = TextOverflow.Ellipsis
+            TopAppBar(
+                title = {
+                    Text(
+                        stringResource(R.string.app_name),
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis
+                    )
+                },
+                actions = {
+                    IconButton(
+                        onClick = {
+                            expanded = !expanded
+                        }
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.MoreVert,
+                            contentDescription = "Options"
                         )
-                    },
-                    actions = {
-                        IconButton(
-                            onClick = {
-                                expanded = !expanded
-                            }
-                        ) {
-                            Icon(
-                                imageVector = Icons.Default.MoreVert,
-                                contentDescription = "Options"
-                            )
-                        }
-                        DropdownMenu(
-                            expanded = expanded,
-                            onDismissRequest = { expanded = false }
-                        ) {
-                            DropdownMenuItem(
-                                text = { Text(stringResource(R.string.menu_about)) },
-                                onClick = {
-                                    backStack.add(Aboutscreen)
-                                    disableBottomBar = true
-                                }
-                            )
-
-                        }
                     }
-                )
-            }
+                    DropdownMenu(
+                        expanded = expanded,
+                        onDismissRequest = { expanded = false }
+                    ) {
+                        DropdownMenuItem(
+                            text = { Text(stringResource(R.string.menu_about)) },
+                            onClick = {
+                                mainBackStack.add(Aboutscreen)
+                            }
+                        )
+
+                    }
+                }
+            )
         },
-            bottomBar = {
-                if(!disableBottomBar) {
-                NavigationBar {
+        bottomBar = {
+            NavigationBar {
 
-                    bottomNavItems.forEachIndexed { index, item ->
-                        NavigationBarItem(
-                            selected = bottomSelected == index,
-                            onClick = {
-                                bottomSelected = index
-                                backStack.add(item.route)
-                            },
-                            label = {
-                                Text(stringResource(item.title))
-                            },
-                            alwaysShowLabel = true,
-                            icon = {
-                                Icon(
-                                    painter = if (index == bottomSelected) {
-                                        painterResource(id = item.selectedIcon)
-                                    } else painterResource(item.unselectedIcon),
-                                    contentDescription = stringResource(item.title),
-                                    modifier = Modifier.size(24.dp)
-                                )
-                            }
-                        )
-                    }
+                bottomNavItems.forEachIndexed { index, item ->
+                    NavigationBarItem(
+                        selected = bottomSelected == index,
+                        onClick = {
+                            bottomSelected = index
+                            backStack.add(item.route)
+                        },
+                        label = {
+                            Text(stringResource(item.title))
+                        },
+                        alwaysShowLabel = true,
+                        icon = {
+                            Icon(
+                                painter = if (index == bottomSelected) {
+                                    painterResource(id = item.selectedIcon)
+                                } else painterResource(item.unselectedIcon),
+                                contentDescription = stringResource(item.title),
+                                modifier = Modifier.size(24.dp)
+                            )
+                        }
+                    )
                 }
             }
         }
@@ -153,13 +144,8 @@ fun SuccessScreen(
                }
              },
             entryProvider = entryProvider {
-                entry<Aboutscreen> {
-                    AboutScreen(
-                        {backStack.removeLastOrNull()}
-                    )
-                }
+
                 entry<RegularBattlesScreen>{
-                    disableBottomBar= false
                     Box(
                         modifier = Modifier.padding(innerPadding)
                     ){
@@ -170,7 +156,6 @@ fun SuccessScreen(
                     }
                 }
                 entry<CompetitiveBattlesScreen>{
-                    disableBottomBar= false
                     Box(
                         modifier = Modifier.padding(innerPadding)
                     ){
@@ -181,7 +166,6 @@ fun SuccessScreen(
                 }
                 entry<SalmonRunScreen>{
 
-                    disableBottomBar= false
                     Box(
                         modifier = Modifier.padding(innerPadding)
                     ){
