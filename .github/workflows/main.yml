@@ -1,0 +1,30 @@
+name: Build Android APK
+
+on: [push, workflow_dispatch]
+
+jobs:
+  build:
+    name: Build APK
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Setup Gradle cache
+        uses: gradle/gradle-build-action@v3
+
+      - name: Build debug APK
+        run: bash ./gradlew assembleDebug
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: octo8-nightly-apk
+          path: app/build/outputs/apk/debug/app-debug.apk
