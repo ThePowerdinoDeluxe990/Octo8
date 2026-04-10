@@ -15,3 +15,6 @@ object RegularBattlesScreen: NavKey
 object CompetitiveBattlesScreen: NavKey
 @Serializable
 object SalmonRunScreen: NavKey
+
+@Serializable
+object EventScreen: NavKey

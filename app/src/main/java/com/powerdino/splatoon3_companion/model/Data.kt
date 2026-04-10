@@ -7,7 +7,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class Data(
     @SerialName("fest")
-    val fest: Fest,
+    val fest: Map<String, List<AdditionalProp1>>?=null,
     @SerialName("normal")
     val normal: List<Normal>
 )

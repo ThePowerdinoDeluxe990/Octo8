@@ -42,6 +42,7 @@ import com.powerdino.splatoon3_companion.model.salmon_run.resources.SalmonResour
 import com.powerdino.splatoon3_companion.ui.screens.routes.Aboutscreen
 import com.powerdino.splatoon3_companion.ui.screens.routes.BottomScreens
 import com.powerdino.splatoon3_companion.ui.screens.routes.CompetitiveBattlesScreen
+import com.powerdino.splatoon3_companion.ui.screens.routes.EventScreen
 import com.powerdino.splatoon3_companion.ui.screens.routes.RegularBattlesScreen
 import com.powerdino.splatoon3_companion.ui.screens.routes.SalmonRunScreen
 
@@ -66,7 +67,8 @@ fun SuccessScreen(
     val bottomNavItems = listOf(
         BottomScreens.Versus,
         BottomScreens.Competitive,
-        BottomScreens.Salmon
+        BottomScreens.Salmon,
+        BottomScreens.Events
     )
 
     Scaffold (
@@ -107,7 +109,6 @@ fun SuccessScreen(
         },
         bottomBar = {
             NavigationBar {
-
                 bottomNavItems.forEachIndexed { index, item ->
                     NavigationBarItem(
                         selected = bottomSelected == index,
@@ -137,11 +138,6 @@ fun SuccessScreen(
             backStack=backStack,
             onBack ={
                backStack.removeLastOrNull()
-                when(backStack.last()){
-                    RegularBattlesScreen -> bottomSelected =0
-                    CompetitiveBattlesScreen ->  bottomSelected = 1
-                    SalmonRunScreen -> bottomSelected = 2
-               }
              },
             entryProvider = entryProvider {
 
@@ -173,6 +169,17 @@ fun SuccessScreen(
                            salmonResources = salmonResources,
                            salmonSchedule = salmonSchedules
                        )
+                    }
+                }
+
+                entry<EventScreen>{
+                    Box(
+                        modifier = Modifier.padding(innerPadding)
+                    ){
+                        EventScreen(
+                            splatfestData = splatoonData.fest,
+                            versusResources = versusResources
+                        )
                     }
                 }
             }

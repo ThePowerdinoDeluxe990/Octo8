@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Octo8</string>
     <string name="current">Current</string>
+    <string name="events">Events</string>
     <string name="next">Upcoming</string>
     <string name="regular">Regular Battle</string>
     <string name="comp">Competitive</string>
@@ -23,4 +24,5 @@
     <string name="assets_url">https://splatoonwiki.org/wiki/Main_Page</string>
     <string name="my_url">https://thepowerdinodeluxe990.github.io/</string>
     <string name="about_src">Source code</string>
+    <string name="no_splatfest">Currently, there are no Splatfests available</string>
 </resources>

@@ -26,7 +26,14 @@ sealed class BottomScreens <T>( val title: Int,
         route = CompetitiveBattlesScreen,
         selected = true,
     )
-
+    @Serializable
+    data object Events: BottomScreens<EventScreen>(
+        title = R.string.events,
+        selected = true,
+        selectedIcon = R.drawable.turfwar,
+        unselectedIcon = R.drawable.turfwar,
+        route = EventScreen
+    )
     @Serializable
     data object Salmon: BottomScreens<SalmonRunScreen>(
         title = R.string.salmon_run,

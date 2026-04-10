@@ -1,0 +1,89 @@
+package com.powerdino.splatoon3_companion.ui.screens.routes
+
+import android.util.Log
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import com.powerdino.splatoon3_companion.R
+import com.powerdino.splatoon3_companion.data.lists.listOfMpMaps
+import com.powerdino.splatoon3_companion.model.AdditionalProp1
+import com.powerdino.splatoon3_companion.model.resources_versus.ResourcesVersus
+import com.powerdino.splatoon3_companion.ui.composables.MapCard
+import com.powerdino.splatoon3_companion.ui.composables.SchedulesTimeComposables
+import com.powerdino.splatoon3_companion.ui.composables.TextSchedule
+
+@Composable
+fun EventScreen(
+    splatfestData: Map<String, List<AdditionalProp1>>?,
+    versusResources: ResourcesVersus
+){
+    Log.e("Api state", splatfestData.toString())
+    if (splatfestData == null){
+        Text(
+            stringResource(R.string.no_splatfest)
+        )
+    }else{
+        splatfestData.forEach { (string, props) ->
+            if (props.isEmpty()) {
+                Text(
+                    stringResource(R.string.no_splatfest)
+                )
+            } else {
+                LazyColumn {
+                    itemsIndexed(props) { index, items ->
+
+                        TextSchedule(index)
+
+                        SchedulesTimeComposables(
+                            startsAt = items.startTime,
+                            endsAt = items.endTime
+                        )
+
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.Center
+                        ) {
+                            items.festRegular.stages.forEach {
+                                Box(
+                                    modifier = Modifier.padding(horizontal = 4.dp)
+                                        .weight(1f)
+                                ) {
+                                    MapCard(
+                                        mapName = versusResources.stages[it.toString()].toString(),
+
+                                        mapImage = listOfMpMaps[it - 1].imageState
+                                    )
+                                }
+
+                            }
+                        }
+                        Spacer(
+                            modifier = Modifier.padding(12.dp)
+                        )
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+@Composable
+@Preview
+private fun Preview(){
+
+}
