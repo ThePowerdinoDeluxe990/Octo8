@@ -24,7 +24,10 @@ fun SalmonRunScreen(
     LazyColumn{
         itemsIndexed(salmonSchedule.normal){ index, items ->
 
-            TextSchedule(index)
+            TextSchedule(
+                items.startTime,
+                items.endTime
+            )
 
             Row(
                 verticalAlignment = Alignment.CenterVertically,

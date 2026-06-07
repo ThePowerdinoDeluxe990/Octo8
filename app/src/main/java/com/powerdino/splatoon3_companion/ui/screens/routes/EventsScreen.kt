@@ -44,7 +44,10 @@ fun EventScreen(
                 LazyColumn {
                     itemsIndexed(props) { index, items ->
 
-                        TextSchedule(index)
+                        TextSchedule(
+                            items.startTime,
+                            items.endTime
+                        )
 
                         SchedulesTimeComposables(
                             startsAt = items.startTime,

@@ -22,7 +22,10 @@ fun XBattlesScreen(
     index: Int,
     items: Normal
 )   {
-    TextSchedule(index)
+    TextSchedule(
+        items.startTime,
+        items.endTime
+    )
     Row(
         verticalAlignment = Alignment.CenterVertically
     ){

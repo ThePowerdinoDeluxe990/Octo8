@@ -1,13 +1,13 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.compose.compiler)
-    id("org.jetbrains.kotlin.plugin.serialization") version "2.3.20"
+    id("org.jetbrains.kotlin.plugin.serialization") version "2.4.0"
     alias(libs.plugins.aboutLibraries)
 }
 
 android {
     namespace = "com.powerdino.splatoon3_companion"
-    compileSdk = 36
+    compileSdk = 37
 
     dependenciesInfo {
         // Disables dependency metadata when building APKs.
@@ -19,7 +19,7 @@ android {
     defaultConfig {
         applicationId = "com.powerdino.splatoon3_companion"
         minSdk = 24
-        targetSdk = 36
+        targetSdk = 37
         versionCode = 16
         versionName = "1.0.3"
 

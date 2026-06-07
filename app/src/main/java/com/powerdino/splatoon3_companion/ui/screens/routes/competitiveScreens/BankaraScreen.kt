@@ -27,7 +27,10 @@ fun BankaraScreen(
     index: Int,
     items: Normal
 ){
-    TextSchedule(index)
+    TextSchedule(
+        items.startTime,
+        items.endTime
+    )
     SchedulesTimeComposables(
         startsAt = items.startTime,
         endsAt = items.endTime

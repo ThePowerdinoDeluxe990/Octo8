@@ -60,7 +60,10 @@ fun RegularBattlesScreen (
             itemsIndexed(splatoonNormal.normal){index, items ->
                 //Text(items.regular.rule)
 
-                TextSchedule(index)
+                TextSchedule(
+                    items.startTime,
+                    items.endTime
+                )
 
                 SchedulesTimeComposables(
                     startsAt = items.startTime,
