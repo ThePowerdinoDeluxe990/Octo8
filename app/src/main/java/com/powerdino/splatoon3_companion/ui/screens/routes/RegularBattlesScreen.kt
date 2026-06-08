@@ -23,6 +23,7 @@ import com.powerdino.splatoon3_companion.R
 import com.powerdino.splatoon3_companion.data.lists.listOfMpMaps
 import com.powerdino.splatoon3_companion.model.Data
 import com.powerdino.splatoon3_companion.model.resources_versus.ResourcesVersus
+import com.powerdino.splatoon3_companion.ui.composables.EmptyApi
 import com.powerdino.splatoon3_companion.ui.composables.LinkButton
 import com.powerdino.splatoon3_companion.ui.composables.MapCard
 import com.powerdino.splatoon3_companion.ui.composables.SchedulesTimeComposables
@@ -33,21 +34,10 @@ fun RegularBattlesScreen (
     splatoonNormal: Data,
     versusResources: ResourcesVersus
 ){
-    val apiUrl = stringResource(R.string.api_url)
-    val uriHandler = LocalUriHandler.current
-
     if(splatoonNormal.normal.isEmpty()){
-        Column() {
-            Text("This might be an error, check the api")
-            LinkButton(
-                onClick = {
-                    uriHandler.openUri(apiUrl)
-                },
-                description = "API",
-                text = "API",
-                icon = Icons.Filled.Wifi
-            )
-        }
+        EmptyApi(
+            stringResource(R.string.no_general)
+        )
 
     }
     Column (

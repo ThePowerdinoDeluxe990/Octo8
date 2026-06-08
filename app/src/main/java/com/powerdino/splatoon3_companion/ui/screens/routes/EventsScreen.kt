@@ -20,6 +20,7 @@ import com.powerdino.splatoon3_companion.R
 import com.powerdino.splatoon3_companion.data.lists.listOfMpMaps
 import com.powerdino.splatoon3_companion.model.AdditionalProp1
 import com.powerdino.splatoon3_companion.model.resources_versus.ResourcesVersus
+import com.powerdino.splatoon3_companion.ui.composables.EmptyApi
 import com.powerdino.splatoon3_companion.ui.composables.MapCard
 import com.powerdino.splatoon3_companion.ui.composables.SchedulesTimeComposables
 import com.powerdino.splatoon3_companion.ui.composables.TextSchedule
@@ -31,16 +32,16 @@ fun EventScreen(
 ){
     Log.e("Api state", splatfestData.toString())
     if (splatfestData == null){
-        Text(
+        EmptyApi(
             stringResource(R.string.no_splatfest)
         )
     }else{
-        splatfestData.forEach { (string, props) ->
-            if (props.isEmpty()) {
-                Text(
-                    stringResource(R.string.no_splatfest)
-                )
-            } else {
+        if(splatfestData.isEmpty()) {
+            EmptyApi(
+                stringResource(R.string.no_splatfest)
+            )
+        }else{
+            splatfestData.forEach { (string, props) ->
                 LazyColumn {
                     itemsIndexed(props) { index, items ->
 

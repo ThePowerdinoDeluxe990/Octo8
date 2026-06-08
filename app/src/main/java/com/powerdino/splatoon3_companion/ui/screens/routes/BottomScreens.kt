@@ -30,8 +30,8 @@ sealed class BottomScreens <T>( val title: Int,
     data object Events: BottomScreens<EventScreen>(
         title = R.string.events,
         selected = true,
-        selectedIcon = R.drawable.turfwar,
-        unselectedIcon = R.drawable.turfwar,
+        selectedIcon = R.drawable.splatfesticon,
+        unselectedIcon = R.drawable.splatfesticon,
         route = EventScreen
     )
     @Serializable
