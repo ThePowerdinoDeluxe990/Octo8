@@ -88,15 +88,6 @@ class SplatoonAppWidget : GlanceAppWidget() {
                                 ),
                             ){
                                 Text(
-                                    text = instant.toString()
-                                        .substringAfterLast("T")
-                                        .replace("Z",""),
-                                    style = TextStyle(
-                                        color = GlanceTheme.colors.onSurface,
-                                        fontWeight = FontWeight.Bold
-                                    )
-                                )
-                                Text(
                                     text = secondInstant.toString()
                                         .substringAfterLast("T")
                                         .replace("Z",""),

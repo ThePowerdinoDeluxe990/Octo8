@@ -1,78 +1,80 @@
 package com.powerdino.splatoon3_companion.ui.screens.routes
 
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.SegmentedButton
+import androidx.compose.material3.SegmentedButtonDefaults
+import androidx.compose.material3.SingleChoiceSegmentedButtonRow
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.ui.Alignment
-import com.powerdino.splatoon3_companion.data.lists.SalmonRunStageImage
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
+import com.powerdino.splatoon3_companion.R
 import com.powerdino.splatoon3_companion.model.salmon_run.Salmon
 import com.powerdino.splatoon3_companion.model.salmon_run.resources.SalmonResources
-import com.powerdino.splatoon3_companion.ui.composables.ModesAndBosses
-import com.powerdino.splatoon3_companion.ui.composables.SchedulesTimeComposables
-import com.powerdino.splatoon3_companion.ui.composables.TextSchedule
-import com.powerdino.splatoon3_companion.ui.screens.routes.salmonComposables.SalmonMapCard
+import com.powerdino.splatoon3_companion.ui.screens.routes.salmon_screens.BigRun
+import com.powerdino.splatoon3_companion.ui.screens.routes.salmon_screens.SalmonRun
 
 @Composable
 fun SalmonRunScreen(
     salmonResources: SalmonResources,
     salmonSchedule: Salmon
 ){
-    LazyColumn{
-        itemsIndexed(salmonSchedule.normal){ index, items ->
 
-            TextSchedule(
-                items.startTime,
-                items.endTime
-            )
+    var salmonScreens by rememberSaveable {
+        mutableIntStateOf(0)
+    }
 
-            Row(
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.Center
-            ){
-                SchedulesTimeComposables(
-                    startsAt = items.startTime,
-                    endsAt = items.endTime
-                )
+    var salmonChecked by remember {
+        mutableStateOf(false)
+    }
 
-                ModesAndBosses(
-                    items.bigBoss,
-                    salmonResources.enemy[items.bigBoss].toString()
-                )
-            }
+    val salmonButtons = listOf<String>(
+        stringResource(R.string.salmon_run),
+        stringResource(R.string.big_run)
+    )
 
-            salmonResources.stages[items.stage.toString(),]?.let {
-                val listOfWeapons = remember {
-                    mutableStateListOf<String>()
-                }
-
-                items.weapons.forEach { weapons ->
-                    when(weapons){
-                        -1 ->listOfWeapons.add(
-                            "Wildcard"
-                        )
-                        else -> listOfWeapons.add(
-                            salmonResources.weaponsmain[weapons.toString(),].toString()
-                        )
-                    }
-
-                }
-
-                SalmonMapCard(
-                    it,
-                    SalmonRunStageImage(items.stage.toString()),
-                    weaponsList = listOfWeapons,
-                    gearName = when(items.rewardGear.kind.lowercase()){
-                        "clothes" -> salmonResources.gearclothes[items.rewardGear.id.toString()]
-                        "shoes" -> salmonResources.gearshoes[items.rewardGear.id.toString()]
-                        "head" -> salmonResources.gearhead[items.rewardGear.id.toString()]
-                        else -> "Shirt"
-                    }.toString()
+    Column {
+        SingleChoiceSegmentedButtonRow(
+            modifier = Modifier
+                .fillMaxWidth()
+        ) {
+            salmonButtons.forEachIndexed { index, string ->
+                val checked = index == salmonScreens
+                SegmentedButton(
+                    selected = checked,
+                    label = { Text(string) },
+                    onClick = {
+                        salmonChecked != salmonChecked
+                        salmonScreens = index
+                    },
+                    shape = SegmentedButtonDefaults.itemShape(
+                        index = index,
+                        count = salmonButtons.size
+                    ),
                 )
             }
         }
+        HorizontalDivider(thickness = 2.dp)
+        when(salmonScreens){
+            0 -> SalmonRun(
+                salmonSchedule,
+                salmonResources
+            )
+            1 -> BigRun(
+                salmonSchedule,
+                salmonResources
+            )
+
+        }
+
     }
 }

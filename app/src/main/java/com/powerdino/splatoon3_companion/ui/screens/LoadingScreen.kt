@@ -20,7 +20,7 @@ import com.powerdino.splatoon3_companion.R
 @OptIn(ExperimentalMaterial3ExpressiveApi::class)
 @Composable
 fun LoadingScreen(){
-    Scaffold(){ innerPadding ->
+    Scaffold{ innerPadding ->
         Column(
             modifier = Modifier
                 .padding(innerPadding)
@@ -33,7 +33,6 @@ fun LoadingScreen(){
             LoadingIndicator()
         }
     }
-
 }
 
 @Preview(

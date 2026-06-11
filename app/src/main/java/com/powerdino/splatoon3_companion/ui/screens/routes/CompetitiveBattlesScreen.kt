@@ -53,7 +53,6 @@ fun CompetitiveBattlesScreen (
            SingleChoiceSegmentedButtonRow(
                modifier = Modifier
                    .fillMaxWidth()
-
            ) {
                competitiveButtons.forEachIndexed { index, string ->
                    val checked = index == competitiveScreens

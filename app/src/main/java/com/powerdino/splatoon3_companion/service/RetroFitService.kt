@@ -10,8 +10,8 @@ interface RetroFitService{
 
 
         @GET("api/v1/three/versus/phases?count=3")
-        //@GET("api/v1/three/versus/phases?startsAfter=2024-09-13T10%3A29%3A48.000Z&count=3")
         //Use this get for testing splatfest screens
+        //@GET("api/v1/three/versus/phases?startsAfter=2024-09-13T10%3A29%3A48.000Z&count=3")
         suspend fun getData(): Data
 
         @GET("api/v1/three/resources/coop")
@@ -24,6 +24,9 @@ interface RetroFitService{
             @Query("language") language: String
         ): ResourcesVersus
 
+
+        //Use this get for testing big run screens
+        //@GET("api/v1/three/coop/phases?startsAfter=2022-03-04T10%3A29%3A48.000Z&count=3")
         @GET("api/v1/three/coop/phases?count=3")
         suspend fun getSalmonSchedules(): Salmon
 }

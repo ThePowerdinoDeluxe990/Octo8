@@ -7,7 +7,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class SalmonNormal(
     @SerialName("bigBoss")
-    val bigBoss: String,
+    val bigBoss: String = "Unknown", //Buff referencia
     @SerialName("endTime")
     val endTime: String,
     @SerialName("phaseId")
@@ -21,5 +21,5 @@ data class SalmonNormal(
     @SerialName("startTime")
     val startTime: String,
     @SerialName("weapons")
-    val weapons: List<Int>
+    val weapons: List<Int?> = listOf(-1,-1,-1,-1)
 )

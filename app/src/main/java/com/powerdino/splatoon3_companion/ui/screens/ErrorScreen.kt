@@ -42,7 +42,6 @@ fun ErrorScreen(
                 contentDescription = "Network Error"
             )
 
-
             Text(
                 text = stringResource(R.string.Error),
                 style = MaterialTheme.typography.titleLarge

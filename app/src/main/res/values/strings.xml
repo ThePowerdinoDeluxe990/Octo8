@@ -6,6 +6,7 @@
     <string name="regular">Regular Battle</string>
     <string name="comp">Competitive</string>
     <string name="salmon_run">Salmon Run</string>
+    <string name="big_run">Big Run</string>
     <string name="start">Starts at: </string>
     <string name="end">Ends at: </string>
     <string name="appwidget_text">EXAMPLE</string>
@@ -21,8 +22,11 @@
     <string name="reload">Reload</string>
     <string name="repo_url">https://github.com/ThePowerdinoDeluxe990/Octo8</string>
     <string name="api_url">https://splatoon.oatmealdome.me/</string>
+    <string name="about_api">API</string>
     <string name="assets_url">https://splatoonwiki.org/wiki/Main_Page</string>
+    <string name="about_assets">Assets</string>
     <string name="my_url">https://thepowerdinodeluxe990.github.io/</string>
+    <string name="about_my">About me</string>
     <string name="about_src">Source code</string>
     <string name="no_splatfest">Currently, there are no Splatfests available</string>
     <string name="no_general">Currently, there are no stages available</string>

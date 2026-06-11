@@ -15,7 +15,11 @@ class DefaultAppContainer:AppContainer{
     private val baseUrl = "https://splatoon.oatmealdome.me/"
 
     private val retrofit: Retrofit = Retrofit.Builder()
-        .addConverterFactory(Json{ ignoreUnknownKeys = true}.asConverterFactory("application/json".toMediaType()))
+        .addConverterFactory(
+        Json{
+            ignoreUnknownKeys = true
+            coerceInputValues = true
+        }.asConverterFactory("application/json".toMediaType()))
         .baseUrl(baseUrl)
         .build()
 
