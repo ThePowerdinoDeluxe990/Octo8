@@ -15,6 +15,7 @@ fun TimeComposable(
     Text(
         text = instant.toString()
             .substringAfterLast("T")
-            .replace("Z",""),
+            .replace("Z","")
+            .substring(0,5),
     )
 }

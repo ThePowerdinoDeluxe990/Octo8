@@ -37,7 +37,8 @@ fun SalmonMapCard(
     mapName:String,
     mapImage:Int,
     weaponsList:List<String>,
-    gearName:String
+    gearName:String,
+    bigRun: Boolean
 ){
     var stateOfArrow by remember {
         mutableStateOf(false)
@@ -83,18 +84,19 @@ fun SalmonMapCard(
                         vertical = 1.dp
                     )
                 ){
+                    if(!bigRun) {
+                        Row {
+                            Text(
+                                text = "Gear: ",
+                                fontWeight = FontWeight.Bold,
+                                style = MaterialTheme.typography.bodyMedium
+                            )
 
-                    Row{
-                        Text(
-                            text = "Gear: ",
-                            fontWeight = FontWeight.Bold,
-                            style = MaterialTheme.typography.bodyMedium
-                        )
-
-                        Text(
-                            text = gearName,
-                            style = MaterialTheme.typography.bodyMedium
-                        )
+                            Text(
+                                text = gearName,
+                                style = MaterialTheme.typography.bodyMedium
+                            )
+                        }
                     }
 
                     Text(
@@ -102,6 +104,7 @@ fun SalmonMapCard(
                         fontWeight = FontWeight.Bold,
                         style = MaterialTheme.typography.bodyMedium
                     )
+
                     val paragraphStyle = ParagraphStyle(textIndent = TextIndent(restLine = 12.sp))
                     Text(
                         text= buildAnnotatedString {
@@ -133,6 +136,7 @@ fun PreviewMapCard(){
             "Splattershot",
             "Splattershot",
         ),
-        gearName = "Shirt"
+        gearName = "Shirt",
+        bigRun = false
     )
 }

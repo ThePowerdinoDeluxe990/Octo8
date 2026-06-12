@@ -79,7 +79,8 @@ fun BigRun(
                         it,
                         SalmonRunStageImage(items.stage.toString()),
                         weaponsList = listOfWeapons,
-                        gearName = items.rewards.toString()
+                        gearName = items.rewards.toString(),
+                        true
                     )
                 }
             }

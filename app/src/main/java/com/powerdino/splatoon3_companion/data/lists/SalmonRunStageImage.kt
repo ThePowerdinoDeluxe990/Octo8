@@ -21,6 +21,6 @@ fun SalmonRunStageImage(
         "105" -> return R.drawable.stage8
         "106" -> return R.drawable.stage2
         "107" -> return R.drawable.stage25
-        else -> return R.drawable.salmonrun
+        else -> return R.drawable.unknownmap
     }
 }

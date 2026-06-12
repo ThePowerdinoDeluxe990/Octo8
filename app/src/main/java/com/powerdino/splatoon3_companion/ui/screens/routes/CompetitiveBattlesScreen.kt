@@ -6,9 +6,11 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
 import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.PrimaryTabRow
 import androidx.compose.material3.SegmentedButton
 import androidx.compose.material3.SegmentedButtonDefaults
 import androidx.compose.material3.SingleChoiceSegmentedButtonRow
+import androidx.compose.material3.Tab
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -35,10 +37,6 @@ fun CompetitiveBattlesScreen (
         mutableIntStateOf(0)
     }
 
-    var competitiveChecked by remember {
-        mutableStateOf(false)
-    }
-
     val competitiveButtons = listOf<String>(
         stringResource(R.string.anarchy_battle),
         stringResource(R.string.x_battles)
@@ -50,27 +48,15 @@ fun CompetitiveBattlesScreen (
        )
    }else{
        Column {
-           SingleChoiceSegmentedButtonRow(
-               modifier = Modifier
-                   .fillMaxWidth()
-           ) {
+           PrimaryTabRow(selectedTabIndex = competitiveScreens) {
                competitiveButtons.forEachIndexed { index, string ->
-                   val checked = index == competitiveScreens
-                   SegmentedButton(
-                       selected = checked,
-                       label ={ Text(string)},
-                       onClick = {
-                           competitiveChecked != competitiveChecked
-                           competitiveScreens = index
-                       },
-                       shape = SegmentedButtonDefaults.itemShape(
-                           index = index,
-                           count = competitiveButtons.size
-                       ),
+                   Tab(
+                       selected = competitiveScreens == index,
+                       onClick = { competitiveScreens = index },
+                       text = { Text(string) }
                    )
                }
            }
-           HorizontalDivider(thickness = 2.dp)
 
            LazyColumn {
                itemsIndexed(splatoonNormal.normal) { index, items ->

@@ -2,10 +2,13 @@ package com.powerdino.splatoon3_companion.ui.screens.routes
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.PrimaryTabRow
 import androidx.compose.material3.SegmentedButton
 import androidx.compose.material3.SegmentedButtonDefaults
 import androidx.compose.material3.SingleChoiceSegmentedButtonRow
+import androidx.compose.material3.Tab
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -33,37 +36,22 @@ fun SalmonRunScreen(
         mutableIntStateOf(0)
     }
 
-    var salmonChecked by remember {
-        mutableStateOf(false)
-    }
-
     val salmonButtons = listOf<String>(
         stringResource(R.string.salmon_run),
         stringResource(R.string.big_run)
     )
 
     Column {
-        SingleChoiceSegmentedButtonRow(
-            modifier = Modifier
-                .fillMaxWidth()
-        ) {
+        PrimaryTabRow(selectedTabIndex = salmonScreens) {
             salmonButtons.forEachIndexed { index, string ->
-                val checked = index == salmonScreens
-                SegmentedButton(
-                    selected = checked,
-                    label = { Text(string) },
-                    onClick = {
-                        salmonChecked != salmonChecked
-                        salmonScreens = index
-                    },
-                    shape = SegmentedButtonDefaults.itemShape(
-                        index = index,
-                        count = salmonButtons.size
-                    ),
+                Tab(
+                    selected = salmonScreens == index,
+                    onClick = {salmonScreens= index},
+                    text={Text(string)}
                 )
             }
         }
-        HorizontalDivider(thickness = 2.dp)
+
         when(salmonScreens){
             0 -> SalmonRun(
                 salmonSchedule,
@@ -73,7 +61,6 @@ fun SalmonRunScreen(
                 salmonSchedule,
                 salmonResources
             )
-
         }
 
     }

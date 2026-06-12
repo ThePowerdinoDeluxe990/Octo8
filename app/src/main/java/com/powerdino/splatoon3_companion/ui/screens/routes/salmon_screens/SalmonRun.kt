@@ -10,7 +10,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import com.powerdino.splatoon3_companion.data.lists.SalmonRunStageImage
 import com.powerdino.splatoon3_companion.model.salmon_run.Salmon
-import com.powerdino.splatoon3_companion.model.salmon_run.SalmonNormal
 import com.powerdino.splatoon3_companion.model.salmon_run.resources.SalmonResources
 import com.powerdino.splatoon3_companion.ui.composables.ModesAndBosses
 import com.powerdino.splatoon3_companion.ui.composables.SchedulesTimeComposables
@@ -71,7 +70,8 @@ fun SalmonRun(
                         "shoes" -> salmonResources.gearshoes[items.rewardGear.id.toString()]
                         "head" -> salmonResources.gearhead[items.rewardGear.id.toString()]
                         else -> "Shirt"
-                    }.toString()
+                    }.toString(),
+                    false
                 )
             }
         }

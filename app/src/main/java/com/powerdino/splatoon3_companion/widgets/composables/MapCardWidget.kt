@@ -1,5 +1,6 @@
 package com.powerdino.splatoon3_companion.widgets.composables
 
+import android.annotation.SuppressLint
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
@@ -21,6 +22,7 @@ import androidx.glance.unit.ColorProvider
 import com.powerdino.splatoon3_companion.R
 
 
+@SuppressLint("RestrictedApi")
 @Composable
 fun MapCardWidget(
     mapName:String,
@@ -41,8 +43,7 @@ fun MapCardWidget(
 
         Box(
             modifier = GlanceModifier
-                .fillMaxSize()
-            ,
+                .fillMaxSize(),
             contentAlignment = Alignment.BottomStart
         ) {
             Text(
