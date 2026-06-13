@@ -11,6 +11,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import kotlinx.datetime.TimeZone
+import kotlinx.datetime.toLocalDateTime
 import kotlin.time.Instant
 
 @Composable
@@ -18,19 +20,23 @@ fun SchedulesTimeComposables(
     startsAt:String,
     endsAt:String,
 ) {
-    val instant = Instant.parse(endsAt)
-
+    val instant = Instant.parse(endsAt).toLocalDateTime(TimeZone.currentSystemDefault())
+    val secondInstant = Instant.parse(startsAt).toLocalDateTime(TimeZone.currentSystemDefault())
     AssistChip(
         modifier = Modifier.padding(
             start = 4.dp
         ),
         onClick = {},
         label = {
-            Text(
-                text = instant.toString()
-                    .replace("Z","")
-                    .replace("T"," ")
-            )
+            Row {
+               Text(
+                   text = secondInstant.toString()
+                       .replace("Z","")
+                       .replace("T"," ")
+               )
+
+            }
+
         },
         leadingIcon = {
             Icon(

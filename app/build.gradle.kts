@@ -22,7 +22,6 @@ android {
         targetSdk = 37
         versionCode = 18
         versionName = "1.1-Beta2"
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -54,6 +53,7 @@ kotlin{
 }
 
 dependencies {
+    implementation(libs.kotlinx.datetime)
     implementation(libs.aboutlibraries.core)
     implementation(libs.aboutlibraries.compose.m3)
     implementation(libs.androidx.navigation3.ui)

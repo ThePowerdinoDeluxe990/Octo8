@@ -6,6 +6,7 @@ import com.powerdino.splatoon3_companion.model.salmon_run.resources.SalmonResour
 import retrofit2.http.GET
 import retrofit2.http.Query
 
+
 interface RetroFitService{
 
 
@@ -21,7 +22,8 @@ interface RetroFitService{
 
         @GET("api/v1/three/resources/versus")
         suspend fun getVersusResources(
-            @Query("language") language: String
+            @Query("language") language: String,
+
         ): ResourcesVersus
 
 

@@ -17,7 +17,6 @@ interface SplatoonRepository {
 class NetworkSplatoonRepository(
     private val splatoonApiService:RetroFitService
 ): SplatoonRepository{
-
     override suspend fun getSplatoonData(): Data = splatoonApiService.getData()
     override suspend fun getSalmonResources(): SalmonResources = splatoonApiService.getSalmonResources("USen")
     override suspend fun getSalmonSchedule(): Salmon = splatoonApiService.getSalmonSchedules()
