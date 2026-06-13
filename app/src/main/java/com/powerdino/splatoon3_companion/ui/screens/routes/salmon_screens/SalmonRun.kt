@@ -64,7 +64,7 @@ fun SalmonRun(
                 SalmonMapCard(
                     it,
                     SalmonRunStageImage(items.stage.toString()),
-                    weaponsList = listOfWeapons,
+                    weaponsList = items.weapons,
                     gearName = when(items.rewardGear.kind.lowercase()){
                         "clothes" -> salmonResources.gearclothes[items.rewardGear.id.toString()]
                         "shoes" -> salmonResources.gearshoes[items.rewardGear.id.toString()]

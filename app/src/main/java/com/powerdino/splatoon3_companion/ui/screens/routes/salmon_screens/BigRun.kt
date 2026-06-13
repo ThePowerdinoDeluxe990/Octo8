@@ -78,7 +78,7 @@ fun BigRun(
                     SalmonMapCard(
                         it,
                         SalmonRunStageImage(items.stage.toString()),
-                        weaponsList = listOfWeapons,
+                        weaponsList = items.weapons,
                         gearName = items.rewards.toString(),
                         true
                     )
