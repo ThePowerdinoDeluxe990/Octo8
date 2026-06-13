@@ -5,16 +5,20 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.CalendarToday
 import androidx.compose.material3.Icon
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import kotlin.time.Instant
 
 @Composable
 fun SchedulesTimeComposables(
     startsAt:String,
-    endsAt:String
+    endsAt:String,
 ) {
+
+    val instant = Instant.parse(endsAt)
 
     Row(
         modifier = Modifier.padding(
@@ -30,6 +34,11 @@ fun SchedulesTimeComposables(
             modifier = Modifier.padding(end = 2.dp,
                 bottom = 2.dp)
         )
-        TimeComposable(endsAt)
+
+        Text(
+            text = instant.toString()
+                .replace("Z","")
+                .replace("T"," ")
+        )
     }
 }

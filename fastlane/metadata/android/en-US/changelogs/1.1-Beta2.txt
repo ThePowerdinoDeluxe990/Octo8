@@ -1,0 +1,6 @@
+v1.1-Beta2.txt:
+- Added support for splatfests
+- Added support Big Run
+- Reworked time
+- Improved UI
+- Added About page
