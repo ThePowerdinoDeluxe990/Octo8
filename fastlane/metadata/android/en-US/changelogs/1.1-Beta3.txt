@@ -1,0 +1,2 @@
+* Fixed timezones issue
+* Added weapon icons to salmon run
