@@ -1,5 +1,6 @@
 package com.powerdino.splatoon3_companion.ui.screens.routes.salmonComposables
 
+import android.util.Log
 import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -50,6 +51,7 @@ fun SalmonMapCard(
     var stateOfArrow by remember {
         mutableStateOf(false)
     }
+
 
     ElevatedCard (
         elevation = CardDefaults.cardElevation(
@@ -108,9 +110,24 @@ fun SalmonMapCard(
                                                 color = MaterialTheme.colorScheme.surfaceContainer
                                             )
                                     )
+
                                 }
                             }
                         }
+                        if(e == -1){
+                            Image(
+                                painterResource(R.drawable.coop_random),
+                                "Unknown",
+                                Modifier
+                                    .padding(bottom = 2.dp)
+                                    .clip(RoundedCornerShape(8.dp))
+                                    .size(40.dp)
+                                    .background(
+                                        color = MaterialTheme.colorScheme.surfaceContainer
+                                    )
+                            )
+                        }
+
                     }
                 }
             }
