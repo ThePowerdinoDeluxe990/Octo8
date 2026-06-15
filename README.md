@@ -14,13 +14,13 @@ Debug releases:<a href="https://nightly.link/ThePowerdinoDeluxe990/Octo8/workflo
 
 
 ## Screenshots:
-<img src="./fastlane/metadata/android/en-US/images/phoneScreenshots/1.png?raw=true" alt="Screenshot" width="200" />
-<img src="./fastlane/metadata/android/en-US/images/phoneScreenshots/2.png?raw=true" alt="Screenshot" width="200" />
-<img src="./fastlane/metadata/android/en-US/images/phoneScreenshots/3.png?raw=true " alt="Screenshot" width="200" />
-<img src="./fastlane/metadata/android/en-US/images/phoneScreenshots/4.png?raw=true " alt="Screenshot" width="200" />
+[<img src="./fastlane/metadata/android/en-US/images/phoneScreenshots/1.png?raw=true" alt="Screenshot" width="200">]
+[<img src="./fastlane/metadata/android/en-US/images/phoneScreenshots/2.png?raw=true" alt="Screenshot" width="200">]
+[<img src="./fastlane/metadata/android/en-US/images/phoneScreenshots/3.png?raw=true " alt="Screenshot" width="200">]
+[<img src="./fastlane/metadata/android/en-US/images/phoneScreenshots/4.png?raw=true " alt="Screenshot" width="200">]
 
 TODO: 
-* Splatfests and Events schedules
+* Events schedules
 * Support for diferent languages
 
 API: https://splatoon.oatmealdome.me/
