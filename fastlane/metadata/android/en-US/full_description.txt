@@ -3,5 +3,6 @@ An app for checking all this schedules from Splatoon 3:
 - Anarchy Battles (Series/Open)
 - X Battles
 - Salmon Run
+- Splatfest
 
 This app is not affiliated with Nintendo. All product names, logos, and brands are property of their respective owners.
