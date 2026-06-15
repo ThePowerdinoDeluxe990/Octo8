@@ -1,0 +1,3 @@
+v1.1-Beta3:
+- Fixed timezones issue
+- Added weapon icons to salmon run
