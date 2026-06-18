@@ -8,10 +8,10 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.powerdino.splatoon3_companion.data.lists.listOfMpMaps
 import com.powerdino.splatoon3_companion.model.Normal
+import com.powerdino.splatoon3_companion.model.resources_versus.ResourcesVersus
 import com.powerdino.splatoon3_companion.ui.composables.MapCard
 import com.powerdino.splatoon3_companion.ui.composables.ModesAndBosses
 import com.powerdino.splatoon3_companion.ui.composables.SchedulesTimeComposables
@@ -20,7 +20,8 @@ import com.powerdino.splatoon3_companion.ui.composables.TextSchedule
 @Composable
 fun XBattlesScreen(
     index: Int,
-    items: Normal
+    items: Normal,
+    versus: ResourcesVersus
 )   {
     TextSchedule(
         items.startTime,
@@ -34,7 +35,7 @@ fun XBattlesScreen(
             endsAt = items.endTime
         )
 
-        ModesAndBosses(items.x.rule, null)
+        ModesAndBosses(items.x.rule, versus.rules[items.x.rule])
     }
 
     Row(
@@ -49,7 +50,7 @@ fun XBattlesScreen(
                     .weight(1f)
             ) {
                 MapCard(
-                    mapName = stringResource(listOfMpMaps[it - 1].nameState),
+                    mapName = versus.stages[it.toString()].toString(),
                     mapImage = listOfMpMaps[it - 1].imageState
                 )
             }

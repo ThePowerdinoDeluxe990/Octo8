@@ -51,7 +51,7 @@ fun BigRun(
 
                     ModesAndBosses(
                         items.bigBoss,
-                        salmonResources.enemy[items.bigBoss].toString()
+                        salmonResources.enemy[items.bigBoss].toString(),
                     )
                 }
 

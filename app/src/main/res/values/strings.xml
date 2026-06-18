@@ -1,33 +1,35 @@
 <resources>
-    <string name="app_name">Octo8</string>
+    <string name="app_name" translatable="false">Octo8</string>
     <string name="current">Current</string>
-    <string name="events">Splatfest</string>
+    <string name="events" translatable="false">Splatfest</string>
     <string name="next">Upcoming</string>
     <string name="regular">Regular Battle</string>
     <string name="comp">Competitive</string>
-    <string name="salmon_run">Salmon Run</string>
-    <string name="big_run">Big Run</string>
-    <string name="start">Starts at: </string>
-    <string name="end">Ends at: </string>
-    <string name="appwidget_text">EXAMPLE</string>
-    <string name="add_widget">Add widget</string>
-    <string name="anarchy_open">Anarchy Battle (Series)</string>
+    <string name="salmon_run" translatable="false">Salmon Run</string>
+    <string name="big_run" translatable="false">Big Run</string>
+    <string name="start" translatable="false">Starts at: </string>
+    <string name="end" translatable="false">Ends at: </string>
+    <string name="appwidget_text" translatable="false">EXAMPLE</string>
+    <string name="add_widget" translatable="false">Add widget</string>
+    <string name="anarchy_series">Anarchy Battle (Series)</string>
     <string name="x_battles">X Battles</string>
     <string name="anarchy_battle">Anarchy Battles</string>
     <string name="loading">Loading</string>
-    <string name="testTagRegular">TestTagRegular</string>
-    <string name="Error">Network error: Connection timed out</string>
-    <string name="app_widget_description">See current turf war schedules</string>
+    <string name="testTagRegular" translatable="false">TestTagRegular</string>
+    <string name="Error" translatable="false">Network error: Connection timed out</string>
+    <string name="app_widget_description" translatable="false">See current turf war schedules</string>
     <string name="menu_about">About</string>
     <string name="reload">Reload</string>
-    <string name="repo_url">https://github.com/ThePowerdinoDeluxe990/Octo8</string>
-    <string name="api_url">https://splatoon.oatmealdome.me/</string>
-    <string name="about_api">API</string>
-    <string name="assets_url">https://splatoonwiki.org/wiki/Main_Page</string>
-    <string name="about_assets">Assets</string>
-    <string name="my_url">https://thepowerdinodeluxe990.github.io/</string>
+    <string name="repo_url" translatable="false">https://github.com/ThePowerdinoDeluxe990/Octo8</string>
+    <string name="api_url" translatable="false">https://splatoon.oatmealdome.me/</string>
+    <string name="about_api" translatable="false">API</string>
+    <string name="assets_url" translatable="false">https://splatoonwiki.org/wiki/Main_Page</string>
+    <string name="about_assets" translatable="false">Assets</string>
+    <string name="my_url" translatable="false">https://thepowerdinodeluxe990.github.io/</string>
     <string name="about_my">About me</string>
     <string name="about_src">Source code</string>
     <string name="no_splatfest">Currently, there are no Splatfests available</string>
     <string name="no_general">Currently, there are no stages available</string>
+    <string name="settings_menu">Settings</string>
+    <string name="anarchy_open"> Anarchy Battle (Open)</string>
 </resources>

@@ -6,12 +6,14 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.ui.NavDisplay
-import com.powerdino.splatoon3_companion.ui.screens.AboutScreen
+import com.powerdino.splatoon3_companion.ui.screens.routes.settings.AboutScreen
 import com.powerdino.splatoon3_companion.ui.screens.ErrorScreen
 import com.powerdino.splatoon3_companion.ui.screens.LoadingScreen
+import com.powerdino.splatoon3_companion.ui.screens.SettingScreen
 import com.powerdino.splatoon3_companion.ui.screens.SuccessScreen
 import com.powerdino.splatoon3_companion.ui.screens.routes.Aboutscreen
 import com.powerdino.splatoon3_companion.ui.screens.routes.MainScreen
+import com.powerdino.splatoon3_companion.ui.screens.routes.SettingsScreen
 import com.powerdino.splatoon3_companion.ui.viewModels.NetworkState
 import com.powerdino.splatoon3_companion.ui.viewModels.SplatoonViewModel
 
@@ -25,7 +27,6 @@ fun MainEntryComposable(){
 
     when(networkStateAndInfo){
         is NetworkState.Success -> {
-
             val mainBackStack = rememberNavBackStack(MainScreen)
 
             NavDisplay(
@@ -41,10 +42,16 @@ fun MainEntryComposable(){
                             mainBackStack = mainBackStack
                         )
                     }
-                    entry<Aboutscreen>{
-                        AboutScreen(
-                           onClickBack = {mainBackStack.removeLastOrNull()}
+                    entry<SettingsScreen>{
+                        SettingScreen(
+                            onClickBack = {mainBackStack.removeLastOrNull()},
+                            backStack = mainBackStack
                         )
+                    }
+                    entry<Aboutscreen>{
+                        AboutScreen{
+                            mainBackStack.removeLastOrNull()
+                        }
                     }
                 }
             )

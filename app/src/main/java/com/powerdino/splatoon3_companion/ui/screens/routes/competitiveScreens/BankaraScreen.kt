@@ -17,6 +17,7 @@ import androidx.compose.ui.unit.dp
 import com.powerdino.splatoon3_companion.R
 import com.powerdino.splatoon3_companion.data.lists.listOfMpMaps
 import com.powerdino.splatoon3_companion.model.Normal
+import com.powerdino.splatoon3_companion.model.resources_versus.ResourcesVersus
 import com.powerdino.splatoon3_companion.ui.composables.MapCard
 import com.powerdino.splatoon3_companion.ui.composables.SchedulesTimeComposables
 import com.powerdino.splatoon3_companion.ui.composables.TextSchedule
@@ -25,7 +26,8 @@ import com.powerdino.splatoon3_companion.ui.composables.ModesAndBosses
 @Composable
 fun BankaraScreen(
     index: Int,
-    items: Normal
+    items: Normal,
+    versus: ResourcesVersus
 ){
     TextSchedule(
         items.startTime,
@@ -37,7 +39,7 @@ fun BankaraScreen(
     )
     Row{
         Text(
-            text=stringResource(R.string.anarchy_open),
+            text=stringResource(R.string.anarchy_series),
             style= MaterialTheme.typography.titleLarge,
             fontWeight = FontWeight.Bold,
             modifier = Modifier.padding(
@@ -47,7 +49,7 @@ fun BankaraScreen(
                 end = 2.dp
             )
         )
-        ModesAndBosses(items.bankara.rule, null)
+        ModesAndBosses(items.bankara.rule, versus.rules[items.bankara.rule])
     }
     Row(
         modifier = Modifier.fillMaxWidth(),
@@ -61,7 +63,7 @@ fun BankaraScreen(
                     .weight(1f)
             ) {
                 MapCard(
-                    mapName = stringResource(listOfMpMaps[it - 1].nameState),
+                    mapName = versus.stages[it.toString()].toString(),
                     mapImage = listOfMpMaps[it - 1].imageState
                 )
 
@@ -75,13 +77,12 @@ fun BankaraScreen(
     )
     Row{
         Text(
-            text="Anarchy Battle (Open)",
+            text=stringResource(R.string.anarchy_open),
             style= MaterialTheme.typography.titleLarge,
             fontWeight = FontWeight.Bold,
             modifier = Modifier.padding(8.dp)
         )
-
-        ModesAndBosses(items.bankaraOpen.rule, null)
+        ModesAndBosses(items.bankaraOpen.rule, versus.rules[items.bankaraOpen.rule]   )
     }
 
     Row(
@@ -96,7 +97,7 @@ fun BankaraScreen(
                     .weight(1f)
             ){
                 MapCard(
-                    mapName = stringResource(listOfMpMaps[it-1].nameState),
+                    mapName = versus.stages[it.toString()].toString(),
                     mapImage = listOfMpMaps[it-1].imageState
                 )
             }

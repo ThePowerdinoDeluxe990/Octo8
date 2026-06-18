@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="next">Próximo</string>
+    <string name="current">Actual</string>
+    <string name="regular">Amistoso</string>
+    <string name="comp">Competitivo</string>
+    <string name="anarchy_open">Combate caótico (Informal)</string>
+    <string name="anarchy_series">Combate caótico (formal)</string>
+    <string name="x_battles">Combate X</string>
+    <string name="about_my">Sobre mi</string>
+    <string name="about_src">Codigo fuente</string>
+    <string name="no_splatfest">Ahora mismo no hay Splatfest</string>
+    <string name="no_general">Ahora mismo no hay rotaciones disponibles</string>
+    <string name="settings_menu">Configuración</string>
+    <string name="menu_about">Sobre Octo8</string>
+    <string name="reload">Volver a cargar</string>
+    <string name="anarchy_battle">Combate caótico</string>
+    <string name="loading">Cargando</string>
+</resources>

@@ -26,26 +26,26 @@ import com.powerdino.splatoon3_companion.data.lists.CompetitiveModesList
 @Composable
 fun ModesAndBosses(
     modeOrBoss:String,
-    bossName:String?
+    bossName:String?,
 ){
     var nameOfMode = ""
     var imageOfMode = 0
 
     when(modeOrBoss){
         "Goal" -> {
-            nameOfMode = stringResource(CompetitiveModesList[1].nameState)
+            nameOfMode = bossName ?: modeOrBoss
             imageOfMode = CompetitiveModesList[1].imageState
         }
         "Lift" ->{
-            nameOfMode = stringResource(CompetitiveModesList[3].nameState)
+            nameOfMode = bossName ?: modeOrBoss
             imageOfMode = CompetitiveModesList[3].imageState
         }
         "Clam"-> {
-            nameOfMode = stringResource(CompetitiveModesList[2].nameState)
+            nameOfMode =bossName ?: modeOrBoss
             imageOfMode = CompetitiveModesList[2].imageState
         }
         "Area"->{
-            nameOfMode = stringResource(CompetitiveModesList[0].nameState)
+            nameOfMode = bossName ?: modeOrBoss
             imageOfMode = CompetitiveModesList[0].imageState
         }
         "Triple"->{
@@ -106,6 +106,6 @@ fun ModesAndBosses(
 fun PreviewModesAndBosses(){
     ModesAndBosses(
         modeOrBoss = "Area",
-        bossName = null
+        bossName = null,
     )
 }

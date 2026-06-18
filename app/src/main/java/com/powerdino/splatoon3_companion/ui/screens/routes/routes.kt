@@ -7,6 +7,8 @@ import kotlinx.serialization.Serializable
 object MainScreen: NavKey
 
 @Serializable
+object SettingsScreen: NavKey
+@Serializable
 object Aboutscreen: NavKey
 
 @Serializable

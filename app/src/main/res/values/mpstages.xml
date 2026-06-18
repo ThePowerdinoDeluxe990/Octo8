@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="stage1">Scorch Gorge</string>
-    <string name="stage2">Eeltail Alley</string>
-    <string name="stage3">Hagglefish Market</string>
-    <string name="stage4">Undertow Spillway</string>
-    <string name="stage5">Um\'ami Ruins</string>
-    <string name="stage6">Mincemeat Metalworks</string>
-    <string name="stage7">Brinewater Springs</string>
-    <string name="stage8">Barnacle &amp; Dime</string>
-    <string name="stage9">Flounder Heights</string>
-    <string name="stage10">Hammerhead Bridge</string>
-    <string name="stage11">Museum d\'Alfonsino</string>
-    <string name="stage12">Mahi-Mahi Resort</string>
-    <string name="stage13">Inkblot Art Academy</string>
-    <string name="stage14">Sturgeon Shipyard</string>
-    <string name="stage15">MakoMart</string>
-    <string name="stage16">Wahoo World</string>
-    <string name="stage17">Humpback Pump Track</string>
-    <string name="stage18">Manta Maria</string>
-    <string name="stage19">Crableg Capital</string>
-    <string name="stage20">Shipshape Cargo Co.</string>
-    <string name="stage21">Robo ROM-en</string>
-    <string name="stage22">Bluefin Depot</string>
-    <string name="stage23">Marlin Airport</string>
-    <string name="stage24">Lemuria Hub</string>
-    <string name="stage25">Grand Splatlands Bowl</string>
-    <string name="stage26">Urchin Underpass</string>
+    <string name="stage1" translatable="false">Scorch Gorge</string>
+    <string name="stage2" translatable="false">Eeltail Alley</string>
+    <string name="stage3" translatable="false">Hagglefish Market</string>
+    <string name="stage4" translatable="false">Undertow Spillway</string>
+    <string name="stage5" translatable="false">Um\'ami Ruins</string>
+    <string name="stage6" translatable="false">Mincemeat Metalworks</string>
+    <string name="stage7" translatable="false">Brinewater Springs</string>
+    <string name="stage8" translatable="false">Barnacle &amp; Dime</string>
+    <string name="stage9" translatable="false">Flounder Heights</string>
+    <string name="stage10" translatable="false">Hammerhead Bridge</string>
+    <string name="stage11" translatable="false">Museum d\'Alfonsino</string>
+    <string name="stage12" translatable="false">Mahi-Mahi Resort</string>
+    <string name="stage13" translatable="false">Inkblot Art Academy</string>
+    <string name="stage14" translatable="false">Sturgeon Shipyard</string>
+    <string name="stage15" translatable="false">MakoMart</string>
+    <string name="stage16" translatable="false">Wahoo World</string>
+    <string name="stage17" translatable="false">Humpback Pump Track</string>
+    <string name="stage18" translatable="false">Manta Maria</string>
+    <string name="stage19" translatable="false">Crableg Capital</string>
+    <string name="stage20" translatable="false">Shipshape Cargo Co.</string>
+    <string name="stage21" translatable="false">Robo ROM-en</string>
+    <string name="stage22" translatable="false">Bluefin Depot</string>
+    <string name="stage23" translatable="false">Marlin Airport</string>
+    <string name="stage24" translatable="false">Lemuria Hub</string>
+    <string name="stage25" translatable="false">Grand Splatlands Bowl</string>
+    <string name="stage26" translatable="false">Urchin Underpass</string>
 </resources>

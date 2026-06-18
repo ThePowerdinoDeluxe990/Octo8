@@ -45,6 +45,7 @@ import com.powerdino.splatoon3_companion.ui.screens.routes.CompetitiveBattlesScr
 import com.powerdino.splatoon3_companion.ui.screens.routes.EventScreen
 import com.powerdino.splatoon3_companion.ui.screens.routes.RegularBattlesScreen
 import com.powerdino.splatoon3_companion.ui.screens.routes.SalmonRunScreen
+import com.powerdino.splatoon3_companion.ui.screens.routes.SettingsScreen
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3ExpressiveApi::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -97,12 +98,11 @@ fun SuccessScreen(
                         onDismissRequest = { expanded = false }
                     ) {
                         DropdownMenuItem(
-                            text = { Text(stringResource(R.string.menu_about)) },
+                            text = { Text(stringResource(R.string.settings_menu)) },
                             onClick = {
-                                mainBackStack.add(Aboutscreen)
+                                mainBackStack.add(SettingsScreen)
                             }
                         )
-
                     }
                 }
             )
@@ -156,7 +156,8 @@ fun SuccessScreen(
                         modifier = Modifier.padding(innerPadding)
                     ){
                         CompetitiveBattlesScreen(
-                            splatoonNormal = splatoonData
+                            splatoonNormal = splatoonData,
+                            versusResources
                         )
                     }
                 }

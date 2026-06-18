@@ -1,4 +1,4 @@
-package com.powerdino.splatoon3_companion.ui.screens
+package com.powerdino.splatoon3_companion.ui.screens.routes.settings
 
 import android.content.pm.PackageManager
 import android.graphics.Canvas

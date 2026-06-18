@@ -11,7 +11,7 @@ data class ResourcesVersus(
     @SerialName("modes")
     val modes: Modes,
     @SerialName("rules")
-    val rules: Rules,
+    val rules: Map<String,String>,
     @SerialName("stages")
     val stages: Map<String, String>
 )

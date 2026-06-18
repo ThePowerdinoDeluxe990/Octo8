@@ -1,21 +1,19 @@
 package com.powerdino.splatoon3_companion.data
 
-import android.util.Log
 import java.util.Locale
 
 fun getLocale(): String {
+    val language = Locale.getDefault().language
+    val country = Locale.getDefault().country
+    var currentLang = "USen"
+
     val listOfLangs = listOf(
         "JPja",
         "USen",
-        "USes",
-        "USfr",
         "USpt",
-        "EUen",
-        "EUes",
         "EUfr",
         "EUde",
         "EUit",
-        "EUpt",
         "EUnl",
         "EUru",
         "KRko",
@@ -23,22 +21,18 @@ fun getLocale(): String {
         "TWzh"
     )
 
-    val locale = Locale.getDefault().country + Locale.getDefault().language
-/*
-    val realLocale = when(locale.get(2)){
-        else -> locale
-    }
-
- */
-    Log.i("locale lang",locale)
-    var currentLang = "USen"
-
-    listOfLangs.forEach { lang ->
-
-        if (locale == lang){
-            currentLang = lang
+    if( language == "es"){
+        currentLang = if(country == "ES"){
+            "EUes"
+        }else{
+            "USes"
+        }
+    }else{
+        listOfLangs.forEach { item ->
+            if(item.takeLast(2) == language){
+                currentLang = item
+            }
         }
     }
-    Log.i("Current lang", currentLang)
     return currentLang
 }
