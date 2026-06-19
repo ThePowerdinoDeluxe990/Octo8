@@ -13,4 +13,11 @@
         android:layout_centerHorizontal="true"
         android:src="@drawable/turfwar"
         tools:layout_centerVertical="true" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="WIP"
+        android:textSize="96sp" />
 </RelativeLayout>

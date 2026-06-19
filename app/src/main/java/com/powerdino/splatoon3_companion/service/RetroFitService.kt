@@ -10,9 +10,9 @@ import retrofit2.http.Query
 interface RetroFitService{
 
 
-        //@GET("api/v1/three/versus/phases?count=3")
+        @GET("api/v1/three/versus/phases?count=3")
         //Use this get for testing splatfest screens
-        @GET("api/v1/three/versus/phases?startsAfter=2024-09-13T10%3A29%3A48.000Z&count=3")
+        //@GET("api/v1/three/versus/phases?startsAfter=2024-09-13T10%3A29%3A48.000Z&count=3")
         suspend fun getData(): Data
 
         @GET("api/v1/three/resources/coop")
