@@ -16,4 +16,7 @@
     <string name="reload">Volver a cargar</string>
     <string name="anarchy_battle">Combate caótico</string>
     <string name="loading">Cargando</string>
+    <string name="settings_lang">Idioma</string>
+    <string name="settings_lang_sub">Cambia el idioma de la aplicación</string>
+    <string name="gear">Ropa</string>
 </resources>

@@ -53,8 +53,5 @@ fun SchedulesTimeComposables(
             horizontal = 10.dp,
         ),
         verticalAlignment = Alignment.CenterVertically,
-
-    ){
-
-    }
+    ){}
 }

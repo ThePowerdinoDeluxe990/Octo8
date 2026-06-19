@@ -27,7 +27,9 @@ fun getLocale(): String {
         }else{
             "USes"
         }
-    }else{
+    }else if(country=="ES"){
+       currentLang = "EUes"
+    } else{
         listOfLangs.forEach { item ->
             if(item.takeLast(2) == language){
                 currentLang = item

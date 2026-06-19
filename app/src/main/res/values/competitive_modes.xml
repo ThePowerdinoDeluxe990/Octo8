@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="zones" translatable="false">Splat Zones</string>
-    <string name="towercontrol" translatable="false">Tower Control</string>
-    <string name="Rainmaker" translatable="false">Rainmaker</string>
-    <string name="clam" translatable="false">Clam Blitz</string>
-</resources>

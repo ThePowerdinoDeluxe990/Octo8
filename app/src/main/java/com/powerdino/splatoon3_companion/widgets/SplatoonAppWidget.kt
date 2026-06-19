@@ -98,13 +98,13 @@ class SplatoonAppWidget : GlanceAppWidget() {
                                     )
                                 )
                             }
-
+    //TODO:FINISH THIS
                             items.regular.stages.forEach {
                                 Row {
                                     Box{
                                         MapCardWidget(
                                             androidx.glance.LocalContext.current.getString(
-                                                listOfMpMaps[it - 1].nameState
+                                                R.string.anarchy_series
                                             ),
                                             mapImage = listOfMpMaps[it - 1].imageState
                                         )

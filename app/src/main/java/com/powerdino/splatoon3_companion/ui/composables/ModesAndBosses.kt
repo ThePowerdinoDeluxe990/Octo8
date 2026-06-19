@@ -20,8 +20,13 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.powerdino.splatoon3_companion.R
-import com.powerdino.splatoon3_companion.data.lists.CompetitiveModesList
 
+val CompetitiveModesList = listOf(
+    R.drawable.zones,
+    R.drawable.rainmaker,
+    R.drawable.clam,
+    R.drawable.tower
+)
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ModesAndBosses(
@@ -34,19 +39,19 @@ fun ModesAndBosses(
     when(modeOrBoss){
         "Goal" -> {
             nameOfMode = bossName ?: modeOrBoss
-            imageOfMode = CompetitiveModesList[1].imageState
+            imageOfMode = CompetitiveModesList[1]
         }
         "Lift" ->{
             nameOfMode = bossName ?: modeOrBoss
-            imageOfMode = CompetitiveModesList[3].imageState
+            imageOfMode = CompetitiveModesList[3]
         }
         "Clam"-> {
             nameOfMode =bossName ?: modeOrBoss
-            imageOfMode = CompetitiveModesList[2].imageState
+            imageOfMode = CompetitiveModesList[2]
         }
         "Area"->{
             nameOfMode = bossName ?: modeOrBoss
-            imageOfMode = CompetitiveModesList[0].imageState
+            imageOfMode = CompetitiveModesList[0]
         }
         "Triple"->{
             nameOfMode = bossName ?: modeOrBoss

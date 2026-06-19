@@ -48,11 +48,6 @@ fun SalmonMapCard(
     gearName: String,
     bigRun: Boolean
 ){
-    var stateOfArrow by remember {
-        mutableStateOf(false)
-    }
-
-
     ElevatedCard (
         elevation = CardDefaults.cardElevation(
             defaultElevation = 6.dp
@@ -62,12 +57,7 @@ fun SalmonMapCard(
         ),
         modifier = Modifier.padding(
             horizontal = 4.dp,
-        ).clickable(
-            onClick = {
-                stateOfArrow = !stateOfArrow
-            }
-        ).animateContentSize()
-        
+        )
     ){
         Column{
             Image(
@@ -132,26 +122,25 @@ fun SalmonMapCard(
                 }
             }
 
-            if(stateOfArrow){
-                Column(
-                    modifier = Modifier.padding(
-                        horizontal = 12.dp,
-                        vertical = 1.dp
-                    )
-                ){
-                    if(!bigRun) {
-                        Row {
-                            Text(
-                                text = "Gear: ",
-                                fontWeight = FontWeight.Bold,
-                                style = MaterialTheme.typography.bodyMedium
-                            )
 
-                            Text(
-                                text = gearName,
-                                style = MaterialTheme.typography.bodyMedium
-                            )
-                        }
+            Column(
+                modifier = Modifier.padding(
+                    horizontal = 4.dp,
+                    vertical = 1.dp
+                )
+            ){
+                if(!bigRun) {
+                    Row {
+                        Text(
+                            text = stringResource(R.string.gear)+": ",
+                            fontWeight = FontWeight.Bold,
+                            style = MaterialTheme.typography.bodyMedium
+                        )
+
+                        Text(
+                            text = gearName,
+                            style = MaterialTheme.typography.bodyMedium
+                        )
                     }
                 }
             }

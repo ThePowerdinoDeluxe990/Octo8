@@ -9,6 +9,9 @@ android {
     namespace = "com.powerdino.splatoon3_companion"
     compileSdk = 37
 
+    androidResources{
+        generateLocaleConfig = true
+    }
     dependenciesInfo {
         // Disables dependency metadata when building APKs.
         includeInApk = false

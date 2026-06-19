@@ -39,7 +39,7 @@ fun BankaraScreen(
     )
     Row{
         Text(
-            text=stringResource(R.string.anarchy_series),
+            text= versus.modes["Bankara"].toString(),
             style= MaterialTheme.typography.titleLarge,
             fontWeight = FontWeight.Bold,
             modifier = Modifier.padding(
@@ -77,7 +77,7 @@ fun BankaraScreen(
     )
     Row{
         Text(
-            text=stringResource(R.string.anarchy_open),
+            text= versus.modes["BankaraOpen"].toString(),
             style= MaterialTheme.typography.titleLarge,
             fontWeight = FontWeight.Bold,
             modifier = Modifier.padding(8.dp)

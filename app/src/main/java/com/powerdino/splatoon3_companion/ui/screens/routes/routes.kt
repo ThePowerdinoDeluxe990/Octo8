@@ -10,6 +10,8 @@ object MainScreen: NavKey
 object SettingsScreen: NavKey
 @Serializable
 object Aboutscreen: NavKey
+@Serializable
+object LibrariesScreen: NavKey
 
 @Serializable
 object RegularBattlesScreen: NavKey

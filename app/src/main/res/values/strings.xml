@@ -31,5 +31,8 @@
     <string name="no_splatfest">Currently, there are no Splatfests available</string>
     <string name="no_general">Currently, there are no stages available</string>
     <string name="settings_menu">Settings</string>
-    <string name="anarchy_open"> Anarchy Battle (Open)</string>
+    <string name="anarchy_open">Anarchy Battle (Open)</string>
+    <string name="settings_lang">Language</string>
+    <string name="settings_lang_sub">Change the app language</string>
+    <string name="gear">Gear</string>
 </resources>

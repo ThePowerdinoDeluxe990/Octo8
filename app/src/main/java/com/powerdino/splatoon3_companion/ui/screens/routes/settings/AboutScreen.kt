@@ -20,6 +20,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.asImageBitmap
@@ -30,13 +31,20 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.graphics.createBitmap
+import androidx.navigation3.runtime.NavBackStack
+import androidx.navigation3.runtime.NavKey
+import com.mikepenz.aboutlibraries.ui.compose.android.produceLibraries
+import com.mikepenz.aboutlibraries.ui.compose.m3.LibrariesContainer
 import com.powerdino.splatoon3_companion.R
 import com.powerdino.splatoon3_companion.ui.screens.about_screen_data.linkList
+import com.powerdino.splatoon3_companion.ui.screens.routes.Aboutscreen
+import com.powerdino.splatoon3_companion.ui.screens.routes.LibrariesScreen
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3ExpressiveApi::class)
 @Composable
 fun AboutScreen(
-    onClickBack:()-> Unit
+    onClickBack:()-> Unit,
+    backStack: NavBackStack<NavKey>
 ){
     val context = LocalContext.current
     var appVersionName = ""
@@ -65,7 +73,7 @@ fun AboutScreen(
                         )
                     }
                 },
-                title = { Text("About") },
+                title = { Text(stringResource(R.string.menu_about)) },
             )
         }
     ) { innerPadding->
@@ -123,6 +131,16 @@ fun AboutScreen(
                                 Text(stringResource(item.subtitle)) },
                         )
                     }
+                    ListItem(
+                        modifier = Modifier.clickable(onClick = {
+                            backStack.add(LibrariesScreen)
+                        }),
+                        headlineContent = {
+                            Text("FOSS") },
+                        supportingContent = {
+                            Text("Libraries used") },
+                    )
+
                 }
             }
         }
@@ -130,9 +148,3 @@ fun AboutScreen(
 }
 
 
-
-@Composable
-@Preview(showSystemUi = true, showBackground = false)
-private fun Preview(){
-   AboutScreen({})
-}

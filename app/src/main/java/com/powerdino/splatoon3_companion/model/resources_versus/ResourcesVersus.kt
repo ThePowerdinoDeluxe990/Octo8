@@ -9,7 +9,7 @@ data class ResourcesVersus(
     @SerialName("league/events")
     val leagueevents: Leagueevents,
     @SerialName("modes")
-    val modes: Modes,
+    val modes: Map<String,String>,
     @SerialName("rules")
     val rules: Map<String,String>,
     @SerialName("stages")

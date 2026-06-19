@@ -12,8 +12,10 @@ import com.powerdino.splatoon3_companion.ui.screens.LoadingScreen
 import com.powerdino.splatoon3_companion.ui.screens.SettingScreen
 import com.powerdino.splatoon3_companion.ui.screens.SuccessScreen
 import com.powerdino.splatoon3_companion.ui.screens.routes.Aboutscreen
+import com.powerdino.splatoon3_companion.ui.screens.routes.LibrariesScreen
 import com.powerdino.splatoon3_companion.ui.screens.routes.MainScreen
 import com.powerdino.splatoon3_companion.ui.screens.routes.SettingsScreen
+import com.powerdino.splatoon3_companion.ui.screens.routes.settings.Libraries
 import com.powerdino.splatoon3_companion.ui.viewModels.NetworkState
 import com.powerdino.splatoon3_companion.ui.viewModels.SplatoonViewModel
 
@@ -49,9 +51,15 @@ fun MainEntryComposable(){
                         )
                     }
                     entry<Aboutscreen>{
-                        AboutScreen{
-                            mainBackStack.removeLastOrNull()
-                        }
+                        AboutScreen(
+                            onClickBack = {mainBackStack.removeLastOrNull()},
+                            backStack = mainBackStack
+                        )
+                    }
+                    entry<LibrariesScreen>{
+                        Libraries(
+                            onClickBack = {mainBackStack.removeLastOrNull()},
+                        )
                     }
                 }
             )
@@ -65,7 +73,6 @@ fun MainEntryComposable(){
             )
         }
     }
-
 }
 
 
