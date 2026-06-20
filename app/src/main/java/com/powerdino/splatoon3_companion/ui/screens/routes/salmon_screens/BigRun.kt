@@ -28,7 +28,7 @@ fun BigRun(
     val emptyMessage = stringResource(R.string.no_general)
 
     if(salmonSchedule.bigRun.isEmpty()){
-        Column() {
+        Column{
             EmptyApi(message = emptyMessage)
         }
     }else{

@@ -72,7 +72,7 @@ fun MapCard(
 @Composable
 fun PreviewMapCard(){
     MapCard(
-        mapName= stringResource(R.string.stage1),
+        mapName= "Map 1",
         mapImage = R.drawable.stage1
     )
 }

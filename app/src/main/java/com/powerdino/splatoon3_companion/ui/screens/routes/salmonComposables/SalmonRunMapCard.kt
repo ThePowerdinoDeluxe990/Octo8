@@ -116,6 +116,18 @@ fun SalmonMapCard(
                                         color = MaterialTheme.colorScheme.surfaceContainer
                                     )
                             )
+                        }else if(e==-2){
+                            Image(
+                                painterResource(R.drawable.coop_random_gold),
+                                "Golden Rotation",
+                                Modifier
+                                    .padding(bottom = 2.dp)
+                                    .clip(RoundedCornerShape(8.dp))
+                                    .size(40.dp)
+                                    .background(
+                                        color = MaterialTheme.colorScheme.surfaceContainer
+                                    )
+                            )
                         }
 
                     }
@@ -152,7 +164,7 @@ fun SalmonMapCard(
 @Composable
 fun PreviewMapCard(){
     SalmonMapCard(
-        mapName = stringResource(R.string.stage1),
+        mapName ="Map1",
         mapImage = R.drawable.stage1,
         weaponsList = listOf(
             30,

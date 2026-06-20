@@ -5,7 +5,6 @@ import com.powerdino.splatoon3_companion.service.RetroFitService
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 interface AppContainer {
     val splatoonRepository:SplatoonRepository

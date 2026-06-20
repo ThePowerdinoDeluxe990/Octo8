@@ -54,9 +54,13 @@ fun SalmonRun(
                         -1 ->listOfWeapons.add(
                             "Wildcard"
                         )
+                        -2-> listOfWeapons.add(
+                            "Golden"
+                        )
                         else -> listOfWeapons.add(
                             salmonResources.weaponsmain[weapons.toString(),].toString()
                         )
+
                     }
 
                 }

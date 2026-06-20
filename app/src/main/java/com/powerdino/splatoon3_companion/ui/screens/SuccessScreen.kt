@@ -1,6 +1,5 @@
 package com.powerdino.splatoon3_companion.ui.screens
 
-import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -19,10 +18,8 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
@@ -39,7 +36,6 @@ import com.powerdino.splatoon3_companion.model.Data
 import com.powerdino.splatoon3_companion.model.resources_versus.ResourcesVersus
 import com.powerdino.splatoon3_companion.model.salmon_run.Salmon
 import com.powerdino.splatoon3_companion.model.salmon_run.resources.SalmonResources
-import com.powerdino.splatoon3_companion.ui.screens.routes.Aboutscreen
 import com.powerdino.splatoon3_companion.ui.screens.routes.BottomScreens
 import com.powerdino.splatoon3_companion.ui.screens.routes.CompetitiveBattlesScreen
 import com.powerdino.splatoon3_companion.ui.screens.routes.EventScreen
@@ -48,7 +44,6 @@ import com.powerdino.splatoon3_companion.ui.screens.routes.SalmonRunScreen
 import com.powerdino.splatoon3_companion.ui.screens.routes.SettingsScreen
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3ExpressiveApi::class)
-@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun SuccessScreen(
     splatoonData: Data,
@@ -58,10 +53,6 @@ fun SuccessScreen(
     mainBackStack: NavBackStack<NavKey>
 ){
     val backStack = rememberNavBackStack(RegularBattlesScreen)
-
-    var bottomSelected by rememberSaveable {
-        mutableIntStateOf(0)
-    }
 
     var expanded by remember { mutableStateOf(false) }
 
@@ -109,11 +100,10 @@ fun SuccessScreen(
         },
         bottomBar = {
             NavigationBar {
-                bottomNavItems.forEachIndexed { index, item ->
+                bottomNavItems.forEach { item ->
                     NavigationBarItem(
-                        selected = bottomSelected == index,
+                        selected = backStack.last() == item.route,
                         onClick = {
-                            bottomSelected = index
                             backStack.add(item.route)
                         },
                         label = {
@@ -122,13 +112,12 @@ fun SuccessScreen(
                         alwaysShowLabel = true,
                         icon = {
                             Icon(
-                                painter = if (index == bottomSelected) {
-                                    painterResource(id = item.selectedIcon)
-                                } else painterResource(item.unselectedIcon),
+                                painterResource(item.unselectedIcon),
                                 contentDescription = stringResource(item.title),
                                 modifier = Modifier.size(24.dp)
                             )
-                        }
+                        },
+
                     )
                 }
             }
@@ -137,10 +126,9 @@ fun SuccessScreen(
         NavDisplay(
             backStack=backStack,
             onBack ={
-               backStack.removeLastOrNull()
-             },
+                backStack.removeLastOrNull()
+            },
             entryProvider = entryProvider {
-
                 entry<RegularBattlesScreen>{
                     Box(
                         modifier = Modifier.padding(innerPadding)

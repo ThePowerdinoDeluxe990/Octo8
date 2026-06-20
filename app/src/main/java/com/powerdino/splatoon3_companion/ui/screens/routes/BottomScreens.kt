@@ -3,6 +3,7 @@ package com.powerdino.splatoon3_companion.ui.screens.routes
 import com.powerdino.splatoon3_companion.R
 import kotlinx.serialization.Serializable
 
+
 @Serializable
 sealed class BottomScreens <T>( val title: Int,
                                 val selectedIcon: Int,

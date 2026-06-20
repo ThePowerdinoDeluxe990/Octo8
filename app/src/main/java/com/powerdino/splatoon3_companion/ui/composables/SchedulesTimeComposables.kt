@@ -1,5 +1,7 @@
 package com.powerdino.splatoon3_companion.ui.composables
 
+import android.content.res.Resources
+import android.text.format.DateFormat
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
@@ -10,6 +12,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.toLocalDateTime
@@ -20,8 +23,22 @@ fun SchedulesTimeComposables(
     startsAt:String,
     endsAt:String,
 ) {
+    val context = LocalContext.current
     val instant = Instant.parse(endsAt).toLocalDateTime(TimeZone.currentSystemDefault())
-    val secondInstant = Instant.parse(startsAt).toLocalDateTime(TimeZone.currentSystemDefault())
+
+    var secondInstant = Instant.parse(startsAt).toLocalDateTime(TimeZone.currentSystemDefault())
+    if (!DateFormat.is24HourFormat(context)) {
+        secondInstant = Instant.parse(startsAt.replace("HH","hh")).toLocalDateTime(TimeZone.currentSystemDefault())
+    }
+
+    val currentTime = secondInstant
+        .toString()
+        .replace("Z","")
+        .replace("T"," ")
+
+
+
+
     AssistChip(
         modifier = Modifier.padding(
             start = 4.dp
@@ -30,13 +47,9 @@ fun SchedulesTimeComposables(
         label = {
             Row {
                Text(
-                   text = secondInstant.toString()
-                       .replace("Z","")
-                       .replace("T"," ")
+                   text = currentTime
                )
-
             }
-
         },
         leadingIcon = {
             Icon(
