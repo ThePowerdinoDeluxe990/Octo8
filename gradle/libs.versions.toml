@@ -1,9 +1,8 @@
 [versions]
 agp = "9.2.1"
 coilComposeVersion = "2.7.0"
-converterGson = "3.0.0"
+desugar_jdk_libs = "2.1.5"
 glanceAppwidgetPreview = "1.1.1"
-gson = "2.14.0"
 kotlin = "2.4.0"
 coreKtx = "1.19.0"
 junit = "4.13.2"
@@ -25,10 +24,10 @@ material3 = "1.5.0-alpha22"
 lifecycleViewmodelNav3 = "2.11.0"
 glancePreview = "1.1.1"
 aboutLibraries = "14.2.1"
-ui = "1.10.6"
 
 [libraries]
 androidx-glance-appwidget-preview = { module = "androidx.glance:glance-appwidget-preview", version.ref = "glanceAppwidgetPreview" }
+desugar_jdk_libs = { module = "com.android.tools:desugar_jdk_libs", version.ref = "desugar_jdk_libs" }
 kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinxDatetime" }
 material-icons-extended = { group = "androidx.compose.material", name = "material-icons-extended" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -61,7 +60,6 @@ androidx-glance-preview = { group = "androidx.glance", name = "glance-preview", 
 
 aboutlibraries-core = { module = "com.mikepenz:aboutlibraries-core", version.ref = "aboutLibraries" }
 # Compose UI modules (choose one or both)
-aboutlibraries-compose-core = { module = "com.mikepenz:aboutlibraries-compose-core", version.ref = "aboutLibraries" } # Common compose core
 aboutlibraries-compose-m3 = { module = "com.mikepenz:aboutlibraries-compose-m3", version.ref = "aboutLibraries" }
 
 [plugins]

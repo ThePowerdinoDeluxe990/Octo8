@@ -1,6 +1,5 @@
 package com.powerdino.splatoon3_companion.ui.composables
 
-import android.content.res.Resources
 import android.text.format.DateFormat
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
@@ -14,7 +13,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
+import kotlinx.datetime.LocalDateTime
 import kotlinx.datetime.TimeZone
+import kotlinx.datetime.format
+import kotlinx.datetime.format.char
 import kotlinx.datetime.toLocalDateTime
 import kotlin.time.Instant
 
@@ -23,20 +25,26 @@ fun SchedulesTimeComposables(
     startsAt:String,
     endsAt:String,
 ) {
-    val context = LocalContext.current
-    val instant = Instant.parse(endsAt).toLocalDateTime(TimeZone.currentSystemDefault())
 
-    var secondInstant = Instant.parse(startsAt).toLocalDateTime(TimeZone.currentSystemDefault())
-    if (!DateFormat.is24HourFormat(context)) {
-        secondInstant = Instant.parse(startsAt.replace("HH","hh")).toLocalDateTime(TimeZone.currentSystemDefault())
+    val context = LocalContext.current
+    //val instant = Instant.parse(endsAt).toLocalDateTime(TimeZone.currentSystemDefault())
+
+    val secondInstant = Instant.parse(startsAt).toLocalDateTime(TimeZone.currentSystemDefault())
+
+    var currentTime: String = secondInstant.toString()
+
+    val format12h = LocalDateTime.Format {
+        year();char('-');monthNumber();char('-');day();
+        char(' ')
+        amPmHour();char(':');minute();
+        char(' '); amPmMarker("AM", "PM")
     }
 
-    val currentTime = secondInstant
-        .toString()
-        .replace("Z","")
-        .replace("T"," ")
-
-
+    if (!DateFormat.is24HourFormat(context)) {
+        currentTime = secondInstant.format(
+            format12h
+        )
+    }
 
 
     AssistChip(
@@ -48,6 +56,8 @@ fun SchedulesTimeComposables(
             Row {
                Text(
                    text = currentTime
+                       .replace("Z", "")
+                       .replace("T", " ")
                )
             }
         },
