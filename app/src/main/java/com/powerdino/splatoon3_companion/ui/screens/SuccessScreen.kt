@@ -33,6 +33,7 @@ import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.ui.NavDisplay
 import com.powerdino.splatoon3_companion.R
 import com.powerdino.splatoon3_companion.model.Data
+import com.powerdino.splatoon3_companion.model.events.EventItem
 import com.powerdino.splatoon3_companion.model.resources_versus.ResourcesVersus
 import com.powerdino.splatoon3_companion.model.salmon_run.Salmon
 import com.powerdino.splatoon3_companion.model.salmon_run.resources.SalmonResources
@@ -50,6 +51,7 @@ fun SuccessScreen(
     salmonResources: SalmonResources,
     salmonSchedules: Salmon,
     versusResources: ResourcesVersus,
+    eventSchedules: List<EventItem>,
     mainBackStack: NavBackStack<NavKey>
 ){
     val backStack = rememberNavBackStack(RegularBattlesScreen)
@@ -145,7 +147,8 @@ fun SuccessScreen(
                     ){
                         CompetitiveBattlesScreen(
                             splatoonNormal = splatoonData,
-                            versusResources
+                            versusResources,
+                            eventSchedules
                         )
                     }
                 }

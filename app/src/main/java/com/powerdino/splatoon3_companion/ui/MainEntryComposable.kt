@@ -41,6 +41,7 @@ fun MainEntryComposable(){
                             salmonResources = networkStateAndInfo.salmonResources,
                             salmonSchedules = networkStateAndInfo.salmonSchedules,
                             versusResources = networkStateAndInfo.versusResources,
+                            eventSchedules = networkStateAndInfo.events,
                             mainBackStack = mainBackStack
                         )
                     }

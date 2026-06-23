@@ -1,6 +1,7 @@
 package com.powerdino.splatoon3_companion.data
 
 import com.powerdino.splatoon3_companion.model.Data
+import com.powerdino.splatoon3_companion.model.events.EventItem
 import com.powerdino.splatoon3_companion.model.resources_versus.ResourcesVersus
 import com.powerdino.splatoon3_companion.model.salmon_run.Salmon
 import com.powerdino.splatoon3_companion.model.salmon_run.resources.SalmonResources
@@ -12,6 +13,7 @@ interface SplatoonRepository {
     suspend fun getSalmonResources(): SalmonResources
     suspend fun getSalmonSchedule(): Salmon
     suspend fun getVersusResources(): ResourcesVersus
+    suspend fun getEvents(): List<EventItem>
 }
 
 class NetworkSplatoonRepository(
@@ -21,4 +23,5 @@ class NetworkSplatoonRepository(
     override suspend fun getSalmonResources(): SalmonResources = splatoonApiService.getSalmonResources(getLocale())
     override suspend fun getSalmonSchedule(): Salmon = splatoonApiService.getSalmonSchedules()
     override suspend fun getVersusResources(): ResourcesVersus = splatoonApiService.getVersusResources(getLocale())
+    override suspend fun getEvents(): List<EventItem> = splatoonApiService.getEvents()
 }
