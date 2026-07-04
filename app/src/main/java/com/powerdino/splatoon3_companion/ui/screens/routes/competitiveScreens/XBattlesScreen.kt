@@ -27,6 +27,7 @@ fun XBattlesScreen(
         items.startTime,
         items.endTime
     )
+
     Row(
         verticalAlignment = Alignment.CenterVertically
     ){
@@ -43,7 +44,7 @@ fun XBattlesScreen(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.Center
     ) {
-        items.x.stages.forEach { it ->
+        items.x.stages.forEach {
             Box(
                 modifier = Modifier
                     .padding(horizontal = 4.dp)

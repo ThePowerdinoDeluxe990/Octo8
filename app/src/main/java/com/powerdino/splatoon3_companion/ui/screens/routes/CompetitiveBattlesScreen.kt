@@ -15,11 +15,9 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.res.stringResource
 import com.powerdino.splatoon3_companion.R
 import com.powerdino.splatoon3_companion.model.Data
-import com.powerdino.splatoon3_companion.model.events.EventItem
 import com.powerdino.splatoon3_companion.model.resources_versus.ResourcesVersus
 import com.powerdino.splatoon3_companion.ui.composables.EmptyApi
 import com.powerdino.splatoon3_companion.ui.screens.routes.competitiveScreens.BankaraScreen
-import com.powerdino.splatoon3_companion.ui.screens.routes.competitiveScreens.EventScreen
 import com.powerdino.splatoon3_companion.ui.screens.routes.competitiveScreens.XBattlesScreen
 
 @OptIn(ExperimentalMaterial3ExpressiveApi::class)
@@ -27,7 +25,6 @@ import com.powerdino.splatoon3_companion.ui.screens.routes.competitiveScreens.XB
 fun CompetitiveBattlesScreen (
     splatoonNormal: Data,
     resourcesVersus: ResourcesVersus,
-    events:List<EventItem>
 ){
     var competitiveScreens by rememberSaveable {
         mutableIntStateOf(0)
@@ -36,7 +33,6 @@ fun CompetitiveBattlesScreen (
     val competitiveButtons = listOf<String>(
         stringResource(R.string.anarchy_battle),
         stringResource(R.string.x_battles),
-        "Events"
     )
 
    if(splatoonNormal.normal.isEmpty()){
@@ -64,10 +60,7 @@ fun CompetitiveBattlesScreen (
                        1 -> XBattlesScreen(
                            index,items, resourcesVersus
                        )
-                       2-> EventScreen(
-                          events = events,
-                           resourcesVersus = resourcesVersus
-                       )
+
                    }
                }
            }

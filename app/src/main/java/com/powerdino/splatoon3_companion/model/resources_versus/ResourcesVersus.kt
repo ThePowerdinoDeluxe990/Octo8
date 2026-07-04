@@ -7,7 +7,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class ResourcesVersus(
     @SerialName("league/events")
-    val leagueevents: Leagueevents,
+    val leagueevents:  Map<String, LeagueEventsInfo>,
     @SerialName("modes")
     val modes: Map<String,String>,
     @SerialName("rules")

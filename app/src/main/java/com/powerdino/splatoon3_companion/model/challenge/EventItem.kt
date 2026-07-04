@@ -1,4 +1,4 @@
-package com.powerdino.splatoon3_companion.model.events
+package com.powerdino.splatoon3_companion.model.challenge
 
 
 import kotlinx.serialization.SerialName

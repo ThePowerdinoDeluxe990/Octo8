@@ -12,7 +12,7 @@ import androidx.lifecycle.viewmodel.viewModelFactory
 import com.powerdino.splatoon3_companion.SplatoonAppContainer
 import com.powerdino.splatoon3_companion.data.SplatoonRepository
 import com.powerdino.splatoon3_companion.model.Data
-import com.powerdino.splatoon3_companion.model.events.EventItem
+import com.powerdino.splatoon3_companion.model.challenge.EventItem
 import com.powerdino.splatoon3_companion.model.resources_versus.ResourcesVersus
 import com.powerdino.splatoon3_companion.model.salmon_run.Salmon
 import com.powerdino.splatoon3_companion.model.salmon_run.resources.SalmonResources

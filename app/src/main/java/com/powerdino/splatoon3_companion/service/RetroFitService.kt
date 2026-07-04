@@ -1,6 +1,6 @@
 package com.powerdino.splatoon3_companion.service
 import com.powerdino.splatoon3_companion.model.Data
-import com.powerdino.splatoon3_companion.model.events.EventItem
+import com.powerdino.splatoon3_companion.model.challenge.EventItem
 import com.powerdino.splatoon3_companion.model.resources_versus.ResourcesVersus
 import com.powerdino.splatoon3_companion.model.salmon_run.Salmon
 import com.powerdino.splatoon3_companion.model.salmon_run.resources.SalmonResources

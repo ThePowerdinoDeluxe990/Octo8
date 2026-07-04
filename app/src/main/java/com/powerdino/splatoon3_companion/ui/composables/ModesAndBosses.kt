@@ -5,18 +5,11 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.PlainTooltip
 import androidx.compose.material3.Text
-import androidx.compose.material3.TooltipAnchorPosition
-import androidx.compose.material3.TooltipBox
-import androidx.compose.material3.TooltipDefaults
-import androidx.compose.material3.rememberTooltipState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.powerdino.splatoon3_companion.R
@@ -33,8 +26,8 @@ fun ModesAndBosses(
     modeOrBoss:String,
     bossName:String?,
 ){
-    var nameOfMode = ""
-    var imageOfMode = 0
+    var nameOfMode: String
+    var imageOfMode: Int
 
     when(modeOrBoss){
         "Goal" -> {
@@ -81,28 +74,19 @@ fun ModesAndBosses(
         ),
         verticalAlignment = Alignment.CenterVertically
     ){
-        TooltipBox(
-            modifier = Modifier,
-            positionProvider =  TooltipDefaults  .rememberTooltipPositionProvider(
-                TooltipAnchorPosition.Above),
-            tooltip = {
-                PlainTooltip { Text(
-                    text= nameOfMode,
-                    style = MaterialTheme.typography.titleMedium,
-                )}
-            },
-            state = rememberTooltipState()
-        ) {
-            Image(
-                painter = painterResource(imageOfMode),
-                contentDescription = nameOfMode,
-                modifier = Modifier
-                    .padding(horizontal = 4.dp)
-                    .size(32.dp)
-            )
-        }
+        Image(
+            painter = painterResource(imageOfMode),
+            contentDescription = nameOfMode,
+            modifier = Modifier
+                .padding(horizontal = 4.dp)
+                .size(32.dp)
+        )
 
+        Text(
+            text= bossName.toString()
+        )
     }
+
 }
 
 

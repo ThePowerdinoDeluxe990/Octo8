@@ -33,7 +33,7 @@ import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.ui.NavDisplay
 import com.powerdino.splatoon3_companion.R
 import com.powerdino.splatoon3_companion.model.Data
-import com.powerdino.splatoon3_companion.model.events.EventItem
+import com.powerdino.splatoon3_companion.model.challenge.EventItem
 import com.powerdino.splatoon3_companion.model.resources_versus.ResourcesVersus
 import com.powerdino.splatoon3_companion.model.salmon_run.Salmon
 import com.powerdino.splatoon3_companion.model.salmon_run.resources.SalmonResources
@@ -148,7 +148,6 @@ fun SuccessScreen(
                         CompetitiveBattlesScreen(
                             splatoonNormal = splatoonData,
                             versusResources,
-                            eventSchedules
                         )
                     }
                 }
@@ -170,7 +169,8 @@ fun SuccessScreen(
                     ){
                         EventScreen(
                             splatfestData = splatoonData.fest,
-                            versusResources = versusResources
+                            versusResources = versusResources,
+                            eventSchedules
                         )
                     }
                 }
