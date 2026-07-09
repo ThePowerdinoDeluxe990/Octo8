@@ -1,5 +1,9 @@
 package com.powerdino.splatoon3_companion.ui.screens
 
+import androidx.compose.animation.ContentTransform
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -94,6 +98,7 @@ fun SuccessScreen(
                             text = { Text(stringResource(R.string.settings_menu)) },
                             onClick = {
                                 mainBackStack.add(SettingsScreen)
+                                expanded = false
                             }
                         )
                     }
@@ -127,6 +132,39 @@ fun SuccessScreen(
     ){ innerPadding ->
         NavDisplay(
             backStack=backStack,
+            transitionSpec = {
+                ContentTransform(
+                    targetContentEnter = fadeIn(tween(300)),
+                    initialContentExit = fadeOut(tween(300)),
+                )
+             },
+            popTransitionSpec = {
+                ContentTransform(
+                    targetContentEnter = fadeIn(tween(300)),
+                    initialContentExit = fadeOut(tween(300)),
+                )
+            },
+            predictivePopTransitionSpec = {
+                ContentTransform(
+                    targetContentEnter = fadeIn(tween(300)),
+                    initialContentExit = fadeOut(tween(300)),
+                )
+            },
+            /*
+                    transitionSpec = {
+                slideInHorizontally { it } + fadeIn() togetherWith
+                        slideOutHorizontally { -it } + fadeOut()
+            },
+            popTransitionSpec = {
+                slideInHorizontally { -it } + fadeIn() togetherWith
+                        slideOutHorizontally { it } + fadeOut()
+            },
+            predictivePopTransitionSpec = {
+                slideInHorizontally { -it } + fadeIn() togetherWith
+                        slideOutHorizontally { it } + fadeOut()
+            },
+
+             */
             onBack ={
                 backStack.removeLastOrNull()
             },

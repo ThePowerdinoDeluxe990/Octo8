@@ -4,10 +4,9 @@
     <string name="current">Actual</string>
     <string name="regular">Amistoso</string>
     <string name="comp">Competitivo</string>
-    <string name="anarchy_open">Combate caótico (Informal)</string>
-    <string name="anarchy_series">Combate caótico (formal)</string>
-    <string name="x_battles">Combate X</string>
     <string name="about_my">Sobre mi</string>
+
+    <string name="event">Eventos</string>
     <string name="about_src">Codigo fuente</string>
     <string name="no_splatfest">Ahora mismo no hay Splatfest</string>
     <string name="no_general">Ahora mismo no hay rotaciones disponibles</string>

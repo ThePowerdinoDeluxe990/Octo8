@@ -4,10 +4,9 @@
     <string name="next">Suivants</string>
     <string name="regular">Match classique</string>
     <string name="settings_menu">Paramètres</string>
-    <string name="anarchy_open">Match anarchie (ouvert)</string>
-    <string name="anarchy_series">Match anarchie (série)</string>
-    <string name="x_battles">Match X</string>
     <string name="about_my">Sur moi</string>
+
+    <string name="event">Événements</string>
     <string name="about_src">Code source</string>
     <string name="no_splatfest">Aucun Splatfest n\'est actuellement disponible.</string>
     <string name="no_general">Actuellement, aucune scène n\'est disponible.</string>

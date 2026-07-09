@@ -1,12 +1,16 @@
 package com.powerdino.splatoon3_companion.ui
 
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.slideInHorizontally
+import androidx.compose.animation.slideOutHorizontally
+import androidx.compose.animation.togetherWith
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.ui.NavDisplay
-import com.powerdino.splatoon3_companion.ui.screens.routes.settings.AboutScreen
 import com.powerdino.splatoon3_companion.ui.screens.ErrorScreen
 import com.powerdino.splatoon3_companion.ui.screens.LoadingScreen
 import com.powerdino.splatoon3_companion.ui.screens.SettingScreen
@@ -15,6 +19,7 @@ import com.powerdino.splatoon3_companion.ui.screens.routes.Aboutscreen
 import com.powerdino.splatoon3_companion.ui.screens.routes.LibrariesScreen
 import com.powerdino.splatoon3_companion.ui.screens.routes.MainScreen
 import com.powerdino.splatoon3_companion.ui.screens.routes.SettingsScreen
+import com.powerdino.splatoon3_companion.ui.screens.routes.settings.AboutScreen
 import com.powerdino.splatoon3_companion.ui.screens.routes.settings.Libraries
 import com.powerdino.splatoon3_companion.ui.viewModels.NetworkState
 import com.powerdino.splatoon3_companion.ui.viewModels.SplatoonViewModel
@@ -33,7 +38,21 @@ fun MainEntryComposable(){
 
             NavDisplay(
                 backStack = mainBackStack,
-                onBack = { mainBackStack.removeLastOrNull()},
+                transitionSpec = {
+                    slideInHorizontally { it } + fadeIn() togetherWith
+                            slideOutHorizontally { -it } + fadeOut()
+                },
+                popTransitionSpec = {
+                    slideInHorizontally { -it } + fadeIn() togetherWith
+                            slideOutHorizontally { it } + fadeOut()
+                },
+                predictivePopTransitionSpec = {
+                    slideInHorizontally { -it } + fadeIn() togetherWith
+                            slideOutHorizontally { it } + fadeOut()
+                },
+                onBack = {
+                    mainBackStack.removeLastOrNull()
+                },
                 entryProvider = entryProvider {
                     entry<MainScreen> {
                         SuccessScreen(
@@ -53,7 +72,7 @@ fun MainEntryComposable(){
                     }
                     entry<Aboutscreen>{
                         AboutScreen(
-                            onClickBack = {mainBackStack.removeLastOrNull()},
+                            onClickBack = { mainBackStack.removeLastOrNull()},
                             backStack = mainBackStack
                         )
                     }

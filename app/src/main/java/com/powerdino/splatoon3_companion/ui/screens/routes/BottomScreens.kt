@@ -29,7 +29,7 @@ sealed class BottomScreens <T>( val title: Int,
     )
     @Serializable
     data object Events: BottomScreens<EventScreen>(
-        title = R.string.events,
+        title = R.string.event,
         selected = true,
         selectedIcon = R.drawable.splatfesticon,
         unselectedIcon = R.drawable.splatfesticon,

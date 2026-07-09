@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="settings_menu">Impostazioni</string>
-    <string name="anarchy_open">Partita anarchica (Aperta)</string>
-    <string name="anarchy_series">Partita anarchica (Serie)</string>
-    <string name="x_battles">Partita X</string>
     <string name="anarchy_battle">"Partita anarchica "</string>
     <string name="current">Attuale</string>
     <string name="next">Prossimamente</string>
     <string name="regular">Partita amichevole</string>
+
+    <string name="event">Eventi</string>
     <string name="comp">Competitivo</string>
     <string name="loading">Caricamento</string>
     <string name="menu_about">Di Octo8</string>

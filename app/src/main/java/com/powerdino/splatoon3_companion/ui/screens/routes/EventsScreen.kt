@@ -30,7 +30,7 @@ fun EventScreen(
 
     val eventButtons = listOf<String>(
         stringResource(R.string.events),
-        "Challenges",
+        versusResources.modes["League"].toString()
     )
 
 

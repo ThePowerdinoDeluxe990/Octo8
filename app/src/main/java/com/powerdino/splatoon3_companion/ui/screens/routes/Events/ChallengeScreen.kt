@@ -4,13 +4,13 @@ import android.text.format.DateFormat
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material3.ListItem
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.Text
@@ -39,9 +39,9 @@ fun ChallengeScreen(
 ){
     val context = LocalContext.current
     val format12h = LocalDateTime.Format {
-        year();char('-');monthNumber();char('-');day();
+        year();char('-');monthNumber();char('-');day()
         char(' ')
-        amPmHour();char(':');minute();
+        amPmHour();char(':');minute()
         char(' '); amPmMarker("AM", "PM")
     }
 
@@ -50,7 +50,10 @@ fun ChallengeScreen(
             Column{
                 OutlinedCard(
                     modifier = Modifier.padding(
-                        top = 3.dp
+                        top = 3.dp,
+                        bottom = 3.dp,
+                        start = 4.dp,
+                        end = 4.dp
 
                     )
                 ) {
@@ -119,28 +122,43 @@ fun ChallengeScreen(
 
                 }
             }
+            OutlinedCard(
+                modifier = Modifier.padding(
+                    top = 8.dp,
+                    bottom = 3.dp,
+                    start = 4.dp,
+                    end = 4.dp
+                )
+            ) {
+                FlowRow(
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    modifier = Modifier
+                        .padding(8.dp)
+                        .fillMaxWidth(),
+                ) {
+                    element.phases.forEach {
+                        val secondInstant = Instant.parse(it.startTime).toLocalDateTime(TimeZone.currentSystemDefault())
 
-            element.phases.forEach {
-                //val instant = Instant.parse(endsAt).toLocalDateTime(TimeZone.currentSystemDefault())
+                        var currentTime: String = secondInstant.toString()
 
-                val secondInstant = Instant.parse(it.startTime).toLocalDateTime(TimeZone.currentSystemDefault())
-
-                var currentTime: String = secondInstant.toString()
-
-
-
-                if (!DateFormat.is24HourFormat(context)) {
-                    currentTime = secondInstant.format(
-                        format12h
-                    )
-                }
-                ListItem(
-                    headlineContent = {
+                        if (!DateFormat.is24HourFormat(context)) {
+                            currentTime = secondInstant.format(
+                                format12h
+                            )
+                        }
                         Text(
                             currentTime
+                                .replace("Z", "")
+                                .replace("T", " "),
+                            modifier = Modifier.padding(
+                                horizontal = 8.dp
+                            ),
+                            style = MaterialTheme.typography.bodyMedium
+
                         )
-                    },
-                )
+
+                    }
+                }
             }
 
             Spacer(

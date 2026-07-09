@@ -104,7 +104,7 @@ class SplatoonAppWidget : GlanceAppWidget() {
                                     Box{
                                         MapCardWidget(
                                             androidx.glance.LocalContext.current.getString(
-                                                R.string.anarchy_series
+                                                R.string.end
                                             ),
                                             mapImage = listOfMpMaps[it - 1].imageState
                                         )

@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name" translatable="false">Octo8</string>
     <string name="current">Current</string>
+    <string name="event">Events</string>
     <string name="events" translatable="false">Splatfest</string>
     <string name="next">Upcoming</string>
     <string name="regular">Regular Battle</string>
@@ -11,8 +12,6 @@
     <string name="end" translatable="false">Ends at: </string>
     <string name="appwidget_text" translatable="false">EXAMPLE</string>
     <string name="add_widget" translatable="false">Add widget</string>
-    <string name="anarchy_series">Anarchy Battle (Series)</string>
-    <string name="x_battles">X Battles</string>
     <string name="anarchy_battle">Anarchy Battles</string>
     <string name="loading">Loading</string>
     <string name="testTagRegular" translatable="false">TestTagRegular</string>
@@ -31,7 +30,6 @@
     <string name="no_splatfest">Currently, there are no Splatfests available</string>
     <string name="no_general">Currently, there are no stages available</string>
     <string name="settings_menu">Settings</string>
-    <string name="anarchy_open">Anarchy Battle (Open)</string>
     <string name="settings_lang">Language</string>
     <string name="settings_lang_sub">Change the app language</string>
     <string name="gear">Gear</string>

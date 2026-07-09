@@ -32,7 +32,7 @@ fun CompetitiveBattlesScreen (
 
     val competitiveButtons = listOf<String>(
         stringResource(R.string.anarchy_battle),
-        stringResource(R.string.x_battles),
+        resourcesVersus.modes["X"].toString()
     )
 
    if(splatoonNormal.normal.isEmpty()){

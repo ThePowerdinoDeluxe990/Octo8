@@ -62,6 +62,10 @@ fun ModesAndBosses(
             nameOfMode = bossName ?: modeOrBoss
             imageOfMode = R.drawable.s3_icon_megalodontia
         }
+        "Paint"->{
+            nameOfMode = bossName ?: modeOrBoss
+            imageOfMode = R.drawable.turfwar
+        }
         else ->{
             nameOfMode = "Unknown"
             imageOfMode = R.drawable.s3_icon_triumvirate
