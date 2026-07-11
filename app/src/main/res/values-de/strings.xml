@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="current">Aktuell</string>
+    <string name="event">Ereignisse</string>
+    <string name="next">Bevorstehend</string>
+    <string name="regular">Standardkampf</string>
+    <string name="comp">Wettkampf</string>
+    <string name="anarchy_battle">Anarchie‑Kämpfe</string>
+    <string name="loading">Lädt</string>
+    <string name="menu_about">Über</string>
+    <string name="reload">Neu laden</string>
+    <string name="about_my">Über mich</string>
+    <string name="about_src">Quellcode</string>
+    <string name="no_splatfest">Derzeit sind keine Splatfest verfügbar</string>
+    <string name="no_general">Derzeit sind keine Karten verfügbar</string>
+    <string name="settings_menu">Einstellungen</string>
+    <string name="settings_lang">Sprache</string>
+    <string name="settings_lang_sub">App‑Sprache ändern</string>
+    <string name="gear">Ausrüstung</string>
+    <string name="libs_used">Verwendete Bibliotheken</string>
+</resources>

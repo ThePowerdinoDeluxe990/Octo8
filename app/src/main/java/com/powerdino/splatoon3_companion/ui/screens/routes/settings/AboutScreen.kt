@@ -15,29 +15,25 @@ import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.ListItem
+import androidx.compose.material3.ListItemDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.graphics.createBitmap
 import androidx.navigation3.runtime.NavBackStack
 import androidx.navigation3.runtime.NavKey
-import com.mikepenz.aboutlibraries.ui.compose.android.produceLibraries
-import com.mikepenz.aboutlibraries.ui.compose.m3.LibrariesContainer
 import com.powerdino.splatoon3_companion.R
 import com.powerdino.splatoon3_companion.ui.screens.about_screen_data.linkList
-import com.powerdino.splatoon3_companion.ui.screens.routes.Aboutscreen
 import com.powerdino.splatoon3_companion.ui.screens.routes.LibrariesScreen
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3ExpressiveApi::class)
@@ -123,22 +119,33 @@ fun AboutScreen(
                         val link = stringResource(item.subtitle)
                         ListItem(
                             modifier = Modifier.clickable(onClick = {
-                                uriHandler.openUri(link)
-                            }),
-                            headlineContent = {
-                                Text(stringResource(item.title)) },
+                                                        uriHandler.openUri(link)
+                                                    }),
+                            leadingContent = null,
+                            trailingContent = null,
+                            overlineContent = null,
                             supportingContent = {
-                                Text(stringResource(item.subtitle)) },
+                                                        Text(stringResource(item.subtitle)) },
+                            colors = ListItemDefaults.colors(),
+                            elevation = ListItemDefaults.elevation(ListItemDefaults.Elevation),
+                            content = {
+                                                        Text(stringResource(item.title)) },
                         )
                     }
                     ListItem(
                         modifier = Modifier.clickable(onClick = {
-                            backStack.add(LibrariesScreen)
-                        }),
-                        headlineContent = {
-                            Text("FOSS") },
+                                                backStack.add(LibrariesScreen)
+                                            }),
+                        leadingContent = null,
+                        trailingContent = null,
+                        overlineContent = null,
                         supportingContent = {
-                            Text("Libraries used") },
+                            Text(stringResource(R.string.libs_used))
+                        },
+                        colors = ListItemDefaults.colors(),
+                        elevation = ListItemDefaults.elevation(ListItemDefaults.Elevation),
+                        content = {
+                                                Text("FOSS") },
                     )
 
                 }

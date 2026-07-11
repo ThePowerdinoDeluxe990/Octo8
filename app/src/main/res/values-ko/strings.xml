@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="next">다음</string>
+    <string name="current">현재</string>
+    <string name="regular">레귤러 매치</string>
+    <string name="comp">"카오폴리스 매치</string>
+    <string name="about_my">내 정보</string>
+
+    <string name="event">이벤트</string>
+    <string name="about_src">소스 코드</string>
+    <string name="no_splatfest">현재 스플랫페스트가 없습니다</string>
+    <string name="no_general">현재 사용할 수 있는 로테이션이 없습니다</string>
+    <string name="settings_menu">설정</string>
+    <string name="menu_about">Octo8 정보</string>
+    <string name="reload">다시 로드</string>
+    <string name="anarchy_battle">혼돈 전투</string>
+    <string name="loading">로딩 중</string>
+    <string name="settings_lang">언어</string>
+    <string name="settings_lang_sub">앱 언어를 변경합니다</string>
+    <string name="gear">장비</string>
+
+    <string name="libs_used">사용된 라이브러리</string>
+</resources>

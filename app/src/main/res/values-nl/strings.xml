@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="current">Huidig</string>
+    <string name="event">Evenementen</string>
+    <string name="next">Komende</string>
+    <string name="regular">Standaardgevecht</string>
+    <string name="comp">Competitief</string>
+    <string name="anarchy_battle">Chaosgevecht</string>
+    <string name="loading">Laden</string>
+    <string name="menu_about">Over</string>
+    <string name="reload">Herladen</string>
+    <string name="about_my">Over mij</string>
+    <string name="about_src">Broncode</string>
+    <string name="no_splatfest">Momenteel zijn er geen Splatfests beschikbaar</string>
+    <string name="no_general">Momenteel zijn er geen stages beschikbaar</string>
+    <string name="settings_menu">Instellingen</string>
+    <string name="settings_lang">Taal</string>
+    <string name="settings_lang_sub">Wijzig de app-taal</string>
+    <string name="gear">Uitrusting</string>
+    <string name="libs_used">Gebruikte bibliotheken</string>
+</resources>

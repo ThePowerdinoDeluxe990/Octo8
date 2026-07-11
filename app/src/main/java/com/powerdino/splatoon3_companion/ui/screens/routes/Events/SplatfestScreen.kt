@@ -84,6 +84,7 @@ fun SplatfestScreen(
                             modifier = Modifier.padding(12.dp)
                         )
 
+
                         Text(
                             text= versusResources.modes["FestChallenge"].toString(),
                             style= MaterialTheme.typography.titleLarge,
@@ -114,35 +115,37 @@ fun SplatfestScreen(
                             modifier = Modifier.padding(12.dp)
                         )
 
-                        Text(
-                            text= versusResources.modes["FestTriColor"].toString(),
-                            style= MaterialTheme.typography.titleLarge,
-                            fontWeight = FontWeight.Bold,
-                            modifier = Modifier.padding(8.dp)
-                        )
+                        if(!items.festTriColor.stages.isEmpty()){
+                            Text(
+                                text= versusResources.modes["FestTriColor"].toString(),
+                                style= MaterialTheme.typography.titleLarge,
+                                fontWeight = FontWeight.Bold,
+                                modifier = Modifier.padding(8.dp)
+                            )
 
-                        Row(
-                            modifier = Modifier.fillMaxWidth(),
-                            verticalAlignment = Alignment.CenterVertically,
-                            horizontalArrangement = Arrangement.Center
-                        ) {
-                            items.festTriColor.stages.forEach {
-                                Box(
-                                    modifier = Modifier.padding(horizontal = 4.dp)
-                                        .weight(1f)
-                                ) {
-                                    MapCard(
-                                        mapName = versusResources.stages[it.toString()].toString(),
+                            Row(
+                                modifier = Modifier.fillMaxWidth(),
+                                verticalAlignment = Alignment.CenterVertically,
+                                horizontalArrangement = Arrangement.Center
+                            ) {
+                                items.festTriColor.stages.forEach {
+                                    Box(
+                                        modifier = Modifier.padding(horizontal = 4.dp)
+                                            .weight(1f)
+                                    ) {
+                                        MapCard(
+                                            mapName = versusResources.stages[it.toString()].toString(),
 
-                                        mapImage = listOfMpMaps[it - 1].imageState
-                                    )
+                                            mapImage = listOfMpMaps[it - 1].imageState
+                                        )
+                                    }
+
                                 }
-
                             }
+                            Spacer(
+                                modifier = Modifier.padding(12.dp)
+                            )
                         }
-                        Spacer(
-                            modifier = Modifier.padding(12.dp)
-                        )
                     }
                 }
             }

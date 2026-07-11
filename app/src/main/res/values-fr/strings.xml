@@ -6,6 +6,7 @@
     <string name="settings_menu">Paramètres</string>
     <string name="about_my">Sur moi</string>
 
+    <string name="libs_used">Bibliothèques utilisées</string>
     <string name="event">Événements</string>
     <string name="about_src">Code source</string>
     <string name="no_splatfest">Aucun Splatfest n\'est actuellement disponible.</string>

@@ -4,6 +4,7 @@
     <string name="event">Events</string>
     <string name="events" translatable="false">Splatfest</string>
     <string name="next">Upcoming</string>
+    <!--CAUTION with regular battle, competitive and splatfest!-->
     <string name="regular">Regular Battle</string>
     <string name="comp">Competitive</string>
     <string name="salmon_run" translatable="false">Salmon Run</string>
@@ -33,4 +34,5 @@
     <string name="settings_lang">Language</string>
     <string name="settings_lang_sub">Change the app language</string>
     <string name="gear">Gear</string>
+    <string name="libs_used">Used libraries</string>
 </resources>

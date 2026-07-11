@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="next">Следующий</string>
+    <string name="current">Текущий</string>
+    <string name="regular">Бой салаг</string>
+    <string name="comp">Стихийный бой</string>
+    <string name="about_my">Обо мне</string>
+
+    <string name="event">События</string>
+    <string name="about_src">Исходный код</string>
+    <string name="no_splatfest">Сейчас нет Splatfest</string>
+    <string name="no_general">Сейчас нет доступных ротаций</string>
+    <string name="settings_menu">Настройки</string>
+    <string name="menu_about">Об Octo8</string>
+    <string name="reload">Перезагрузить</string>
+    <string name="anarchy_battle">Хаотичный бой</string>
+    <string name="loading">Загрузка</string>
+    <string name="settings_lang">Язык</string>
+    <string name="settings_lang_sub">Изменить язык приложения</string>
+    <string name="gear">Одежда</string>
+
+    <string name="libs_used">Используемые библиотеки</string>
+</resources>

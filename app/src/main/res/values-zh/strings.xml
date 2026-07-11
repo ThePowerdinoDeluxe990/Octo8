@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="next">下一步</string>
+    <string name="current">当前</string>
+    <string name="regular">一般比賽</string>
+    <string name="comp">蠻頹比賽</string>
+    <string name="about_my">关于我</string>
+
+    <string name="event">活动</string>
+    <string name="about_src">源代码</string>
+    <string name="no_splatfest">当前没有 Splatfest</string>
+    <string name="no_general">当前没有可用的轮换</string>
+    <string name="settings_menu">设置</string>
+    <string name="menu_about">关于 Octo8</string>
+    <string name="reload">重新加载</string>
+    <string name="anarchy_battle">混乱战斗</string>
+    <string name="loading">加载中</string>
+    <string name="settings_lang">语言</string>
+    <string name="settings_lang_sub">更改应用语言</string>
+    <string name="gear">服装</string>
+
+    <string name="libs_used">已使用的库</string>
+    <!-- Home -->
+</resources>

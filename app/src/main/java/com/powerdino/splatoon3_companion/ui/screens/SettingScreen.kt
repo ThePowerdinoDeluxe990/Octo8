@@ -13,6 +13,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.ListItem
+import androidx.compose.material3.ListItemDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -62,32 +63,41 @@ fun SettingScreen(
         ) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
                 ListItem(
-                    modifier = Modifier.clickable(onClick = {
+                    modifier = Modifier.clickable(
+                        onClick = {
+                            val intent = Intent(Settings.ACTION_APP_LOCALE_SETTINGS)
+                            val uri = Uri.fromParts("package", context.packageName, null)
+                            intent.data = uri
 
-                        val intent = Intent(Settings.ACTION_APP_LOCALE_SETTINGS)
-                        val uri = Uri.fromParts("package", context.packageName, null)
-                        intent.data = uri
-
-                        context.startActivity(intent)
-
-                    }),
-                    headlineContent = {
-                        Text(stringResource(R.string.settings_lang))
-                    },
+                            context.startActivity(intent)
+                        }),
+                    leadingContent = null,
+                    trailingContent = null,
+                    overlineContent = null,
                     supportingContent = {
                         Text(stringResource(R.string.settings_lang_sub))
-                    }
-
+                    },
+                    colors = ListItemDefaults.colors(),
+                    elevation = ListItemDefaults.elevation(ListItemDefaults.Elevation),
+                    content = {
+                                        Text(stringResource(R.string.settings_lang))
+                                    },
                 )
             }
 
             ListItem(
                 modifier = Modifier.clickable(onClick = {
-                    backStack.add(Aboutscreen)
-                }),
-                headlineContent = {
-                    Text(stringResource(R.string.menu_about))
-                },
+                                backStack.add(Aboutscreen)
+                            }),
+                leadingContent = null,
+                trailingContent = null,
+                overlineContent = null,
+                supportingContent = null,
+                colors = ListItemDefaults.colors(),
+                elevation = ListItemDefaults.elevation(ListItemDefaults.Elevation),
+                content = {
+                                Text(stringResource(R.string.menu_about))
+                            },
             )
         }
     }

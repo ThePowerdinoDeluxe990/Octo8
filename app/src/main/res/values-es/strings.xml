@@ -18,4 +18,6 @@
     <string name="settings_lang">Idioma</string>
     <string name="settings_lang_sub">Cambia el idioma de la aplicación</string>
     <string name="gear">Ropa</string>
+
+    <string name="libs_used">Librerias utilizadas</string>
 </resources>

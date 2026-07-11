@@ -8,6 +8,7 @@
     <string name="loading">読み込み中</string>
     <string name="menu_about">について</string>
     <string name="reload">再読み込み</string>
+    <string name="about_src">ソースコード</string>
     <string name="no_splatfest">現在、フェスは開催されていません。</string>
     <string name="no_general">現在、利用可能なステージはありません。</string>
     <string name="settings_menu">設定</string>
@@ -15,4 +16,6 @@
     <string name="settings_lang_sub">アプリの言語を変更する</string>
     <string name="gear">装置</string>
     <string name="event">イベント</string>
+    <string name="about_my">私について</string>
+    <string name="libs_used">使用したライブラリ</string>
 </resources>
