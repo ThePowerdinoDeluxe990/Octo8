@@ -1,0 +1,6 @@
+v1.1:
+- Added challenge screen
+- Improved transitions
+- Added support for multiple languages supported by the API (Please if anything is wrong send an issue with the error and the correct translation)
+- Fixed bug for splatfest screen where the title for tricolor appeared without a tricolor stage on rotation
+- Removed screams and sounds when afk
