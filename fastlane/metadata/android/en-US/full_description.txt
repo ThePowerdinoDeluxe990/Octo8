@@ -4,5 +4,6 @@ An app for checking all this schedules from Splatoon 3:
 - X Battles
 - Salmon Run
 - Splatfest
+- Challenges
 
 This app is not affiliated with Nintendo. All product names, logos, and brands are property of their respective owners.
