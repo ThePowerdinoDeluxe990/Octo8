@@ -35,6 +35,7 @@ import com.powerdino.splatoon3_companion.ui.screens.routes.Aboutscreen
 fun SettingScreen(
     onClickBack: () -> Unit,
     backStack: NavBackStack<NavKey>,
+
 ) {
     val context = LocalContext.current
     var expanded by remember { mutableStateOf(false) }
@@ -70,6 +71,7 @@ fun SettingScreen(
                             intent.data = uri
 
                             context.startActivity(intent)
+
                         }),
                     leadingContent = null,
                     trailingContent = null,

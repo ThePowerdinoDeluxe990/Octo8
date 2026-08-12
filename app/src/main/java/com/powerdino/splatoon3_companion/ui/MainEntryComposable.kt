@@ -61,13 +61,14 @@ fun MainEntryComposable(){
                             salmonSchedules = networkStateAndInfo.salmonSchedules,
                             versusResources = networkStateAndInfo.versusResources,
                             eventSchedules = networkStateAndInfo.events,
-                            mainBackStack = mainBackStack
+                            mainBackStack = mainBackStack,
+                            viewModel = splatoonViewModel
                         )
                     }
                     entry<SettingsScreen>{
                         SettingScreen(
                             onClickBack = {mainBackStack.removeLastOrNull()},
-                            backStack = mainBackStack
+                            backStack = mainBackStack,
                         )
                     }
                     entry<Aboutscreen>{

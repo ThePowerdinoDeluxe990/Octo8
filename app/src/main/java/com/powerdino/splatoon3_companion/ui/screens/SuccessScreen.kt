@@ -47,6 +47,7 @@ import com.powerdino.splatoon3_companion.ui.screens.routes.EventScreen
 import com.powerdino.splatoon3_companion.ui.screens.routes.RegularBattlesScreen
 import com.powerdino.splatoon3_companion.ui.screens.routes.SalmonRunScreen
 import com.powerdino.splatoon3_companion.ui.screens.routes.SettingsScreen
+import com.powerdino.splatoon3_companion.ui.viewModels.SplatoonViewModel
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3ExpressiveApi::class)
 @Composable
@@ -56,7 +57,8 @@ fun SuccessScreen(
     salmonSchedules: Salmon,
     versusResources: ResourcesVersus,
     eventSchedules: List<EventItem>,
-    mainBackStack: NavBackStack<NavKey>
+    mainBackStack: NavBackStack<NavKey>,
+    viewModel: SplatoonViewModel
 ){
     val backStack = rememberNavBackStack(RegularBattlesScreen)
 
@@ -98,6 +100,13 @@ fun SuccessScreen(
                             text = { Text(stringResource(R.string.settings_menu)) },
                             onClick = {
                                 mainBackStack.add(SettingsScreen)
+                                expanded = false
+                            }
+                        )
+                        DropdownMenuItem(
+                            text = { Text(stringResource(R.string.reload)) },
+                            onClick = {
+                                viewModel.getSplatoonData()
                                 expanded = false
                             }
                         )

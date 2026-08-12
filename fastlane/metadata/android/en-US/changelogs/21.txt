@@ -1,0 +1,4 @@
+v1.1.1:
+- Fixed bug where no schedule composable didn't appear in splatfest screen, even when they weren't any schedules.
+- Improved Salmon run weapon icon loading and optimized images.
+- Added reload button in the dropdown menu
