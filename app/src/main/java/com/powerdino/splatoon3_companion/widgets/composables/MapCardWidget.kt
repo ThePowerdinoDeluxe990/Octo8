@@ -7,13 +7,11 @@ import androidx.compose.ui.unit.dp
 import androidx.glance.GlanceModifier
 import androidx.glance.Image
 import androidx.glance.ImageProvider
-import androidx.glance.appwidget.cornerRadius
 import androidx.glance.layout.Alignment
 import androidx.glance.layout.Box
 import androidx.glance.layout.ContentScale
 import androidx.glance.layout.fillMaxSize
 import androidx.glance.layout.padding
-import androidx.glance.layout.size
 import androidx.glance.preview.ExperimentalGlancePreviewApi
 import androidx.glance.text.FontWeight
 import androidx.glance.text.Text
@@ -27,18 +25,16 @@ import com.powerdino.splatoon3_companion.R
 fun MapCardWidget(
     mapName:String,
     mapImage:Int,
+    modifier: GlanceModifier,
 ){
     Box(
-        modifier = GlanceModifier.size(
-            height = 64.dp,
-            width = 128.dp
-        )
+        modifier
     ){
         Image(
             provider = ImageProvider(mapImage),
             contentDescription = mapName,
             contentScale = ContentScale.FillBounds,
-            modifier = GlanceModifier.cornerRadius(6.dp)
+            modifier = GlanceModifier
         )
 
         Box(
@@ -49,12 +45,12 @@ fun MapCardWidget(
             Text(
                 text=mapName,
                 modifier = GlanceModifier
-                    .padding(2.dp)
-                    .cornerRadius(6.dp),
+                    .padding(2.dp),
                 maxLines = 2,
                 style = TextStyle(
                     color = ColorProvider(Color.White),
-                    fontWeight = FontWeight.Bold
+                    fontWeight = FontWeight.Bold,
+
                 )
             )
         }
@@ -67,6 +63,7 @@ fun MapCardWidget(
 private fun Preview(){
    MapCardWidget(
        mapName = "Stage 1",
-       mapImage = R.drawable.stage1
+       mapImage = R.drawable.stage1,
+       modifier = GlanceModifier
    )
 }

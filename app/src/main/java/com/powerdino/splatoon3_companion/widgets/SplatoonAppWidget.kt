@@ -1,6 +1,7 @@
 package com.powerdino.splatoon3_companion.widgets
 
 import android.content.Context
+import android.text.format.DateFormat
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
 import androidx.glance.GlanceId
@@ -8,7 +9,11 @@ import androidx.glance.GlanceModifier
 import androidx.glance.GlanceTheme
 import androidx.glance.Image
 import androidx.glance.ImageProvider
+import androidx.glance.LocalContext
+import androidx.glance.LocalSize
 import androidx.glance.appwidget.GlanceAppWidget
+import androidx.glance.appwidget.SizeMode
+import androidx.glance.appwidget.cornerRadius
 import androidx.glance.appwidget.provideContent
 import androidx.glance.background
 import androidx.glance.layout.Alignment
@@ -18,7 +23,7 @@ import androidx.glance.layout.Row
 import androidx.glance.layout.fillMaxWidth
 import androidx.glance.layout.padding
 import androidx.glance.layout.size
-import androidx.glance.preview.ExperimentalGlancePreviewApi
+import androidx.glance.layout.wrapContentSize
 import androidx.glance.text.FontWeight
 import androidx.glance.text.Text
 import androidx.glance.text.TextStyle
@@ -31,37 +36,58 @@ import com.powerdino.splatoon3_companion.model.League
 import com.powerdino.splatoon3_companion.model.Normal
 import com.powerdino.splatoon3_companion.model.Regular
 import com.powerdino.splatoon3_companion.model.X
+import com.powerdino.splatoon3_companion.model.resources_versus.ResourcesVersus
 import com.powerdino.splatoon3_companion.widgets.composables.MapCardWidget
+import kotlinx.datetime.LocalDateTime
+import kotlinx.datetime.TimeZone
+import kotlinx.datetime.format
+import kotlinx.datetime.format.char
+import kotlinx.datetime.toLocalDateTime
 import kotlin.time.ExperimentalTime
 import kotlin.time.Instant
 
 
 class SplatoonAppWidget : GlanceAppWidget() {
+
+    override val sizeMode = SizeMode.Exact
     override suspend fun provideGlance(context: Context, id: GlanceId) {
         val appRepository = DefaultAppContainer()
         val splatoonData = appRepository.splatoonRepository.getSplatoonData()
+        val splatoonResources = appRepository.splatoonRepository.getVersusResources()
 
         provideContent {
-            GlanceTheme{
+            GlanceTheme {
                 MyContent(
-                    maps = splatoonData.normal
+                    maps = splatoonData.normal,
+                    resources = splatoonResources
                 )
             }
-       }
+        }
     }
 
-    // Very WIP I need to rewrite and redesign this
     @OptIn(ExperimentalTime::class)
     @Composable
     private fun MyContent(
-        maps: List<Normal>
-    ){
+        maps: List<Normal>,
+        resources: ResourcesVersus
+    ) {
+        val context = LocalContext.current
+        val size = LocalSize.current
+        var currentWidth = 128.dp
+        var currentHeight = 64.dp
 
-        Column (
+        when(getWidgetSize()){
+            WidgetSize.EXTRASMALL -> currentWidth = 32.dp
+            WidgetSize.SMALL -> currentWidth = 48.dp
+            WidgetSize.MEDIUM -> currentWidth= 128.dp
+            WidgetSize.LARGE -> currentWidth = size.width /2  - 28.dp
+        }
+
+        Column(
             modifier = GlanceModifier.background(
                 GlanceTheme.colors.widgetBackground
             )
-        ){
+        ) {
             Image(
                 provider = ImageProvider(R.drawable.turfwar),
                 contentDescription = "Paint",
@@ -71,9 +97,23 @@ class SplatoonAppWidget : GlanceAppWidget() {
                     .padding(4.dp)
             )
             maps.forEachIndexed { index, items ->
-                if(index <2){
-                    val instant = Instant.parse(items.startTime)
-                    val secondInstant = Instant.parse(items.endTime)
+                if (index < 2) {
+
+                    val secondInstant = Instant.parse(items.startTime).toLocalDateTime(TimeZone.currentSystemDefault())
+                    var currentTime: String = secondInstant.toString()
+
+                    val format12h = LocalDateTime.Format {
+                        year();char('-');monthNumber();char('-');day();
+                        char(' ')
+                        amPmHour();char(':');minute();
+                        char(' '); amPmMarker("AM", "PM")
+                    }
+
+                    if (!DateFormat.is24HourFormat(context)) {
+                        currentTime = secondInstant.format(
+                            format12h
+                        )
+                    }
                     Column {
                         Row(
                             modifier = GlanceModifier.padding(
@@ -86,40 +126,46 @@ class SplatoonAppWidget : GlanceAppWidget() {
                                 modifier = GlanceModifier.padding(
                                     horizontal = 6.dp,
                                 ),
-                            ){
+                            ) {
                                 Text(
-                                    text = secondInstant.toString()
+                                    text = currentTime
                                         .substringAfterLast("T")
-                                        .replace("Z","")
-                                        .substring(0,5),
+                                        .replace("T", " "),
                                     style = TextStyle(
                                         color = GlanceTheme.colors.onSurface,
-                                        fontWeight = FontWeight.Bold
-                                    )
+                                        fontWeight = FontWeight.Bold,
+                                    ),
                                 )
                             }
-    //TODO:FINISH THIS
-                            items.regular.stages.forEach {
-                                Row {
-                                    Box{
-                                        MapCardWidget(
-                                            androidx.glance.LocalContext.current.getString(
-                                                R.string.end
-                                            ),
-                                            mapImage = listOfMpMaps[it - 1].imageState
-                                        )
+                            Row(
+                                modifier = GlanceModifier
+                                    .cornerRadius(6.dp)
+                            ) {
+                                items.regular.stages.forEach {
+                                    Row {
+                                        Box{
+                                            MapCardWidget(
+                                                mapName = resources.stages[it.toString()].toString(),
+                                                mapImage = listOfMpMaps[it - 1].imageState,
+                                                modifier = GlanceModifier
+                                                    .wrapContentSize()
+                                                    .size(
+                                                        height = currentHeight,
+                                                        width = currentWidth
+                                                    )
+                                            )
+                                        }
                                     }
                                 }
-
                             }
                         }
                     }
                 }
             }
         }
-
-  }
-
+    }
+}
+/*
     @OptIn(ExperimentalGlancePreviewApi::class)
     @Composable
     @androidx.glance.preview.Preview
@@ -136,7 +182,7 @@ class SplatoonAppWidget : GlanceAppWidget() {
         }
     }
 }
-
+*/
 val previewList =
     listOf<Normal>(
         Normal(
