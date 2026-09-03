@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.MaterialTheme
@@ -34,7 +35,7 @@ fun SalmonMapCard(
     mapImage: Int,
     weaponsList: List<Int?>,
     gearName: String,
-    bigRun: Boolean
+    event: Boolean
 ){
     ElevatedCard (
         elevation = CardDefaults.cardElevation(
@@ -132,18 +133,19 @@ fun SalmonMapCard(
                     vertical = 1.dp
                 )
             ){
-                if(!bigRun) {
+                if(!event) {
                     Row {
                         Text(
                             text = stringResource(R.string.gear)+": ",
                             fontWeight = FontWeight.Bold,
                             style = MaterialTheme.typography.bodyMedium
                         )
-
-                        Text(
-                            text = gearName,
-                            style = MaterialTheme.typography.bodyMedium
-                        )
+                        SelectionContainer {
+                            Text(
+                                text = gearName,
+                                style = MaterialTheme.typography.bodyMedium
+                            )
+                        }
                     }
                 }
             }
@@ -164,6 +166,6 @@ fun PreviewMapCard(){
             30,
         ),
         gearName = "Shirt",
-        bigRun = false
+        event = false
     )
 }

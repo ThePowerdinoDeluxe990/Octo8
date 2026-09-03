@@ -63,7 +63,7 @@ fun SplatfestScreen(
                                 text= versusResources.modes["FestRegular"].toString(),
                                 style= MaterialTheme.typography.titleLarge,
                                 fontWeight = FontWeight.Bold,
-                                modifier = Modifier.padding(8.dp)
+                                modifier = Modifier.padding(4.dp)
                             )
 
                             Row(
@@ -94,7 +94,7 @@ fun SplatfestScreen(
                                 text= versusResources.modes["FestChallenge"].toString(),
                                 style= MaterialTheme.typography.titleLarge,
                                 fontWeight = FontWeight.Bold,
-                                modifier = Modifier.padding(8.dp)
+                                modifier = Modifier.padding(4.dp)
                             )
 
                             Row(
@@ -125,7 +125,7 @@ fun SplatfestScreen(
                                     text= versusResources.modes["FestTriColor"].toString(),
                                     style= MaterialTheme.typography.titleLarge,
                                     fontWeight = FontWeight.Bold,
-                                    modifier = Modifier.padding(8.dp)
+                                    modifier = Modifier.padding(4.dp)
                                 )
 
                                 Row(

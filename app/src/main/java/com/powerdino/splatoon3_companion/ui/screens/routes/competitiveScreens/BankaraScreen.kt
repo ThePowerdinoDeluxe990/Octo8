@@ -42,9 +42,9 @@ fun BankaraScreen(
             style= MaterialTheme.typography.titleLarge,
             fontWeight = FontWeight.Bold,
             modifier = Modifier.padding(
-                bottom = 8.dp,
-                top = 8.dp,
-                start = 8.dp,
+                bottom = 4.dp,
+                top = 4.dp,
+                start = 4.dp,
                 end = 2.dp
             )
         )
@@ -79,7 +79,7 @@ fun BankaraScreen(
             text= versus.modes["BankaraOpen"].toString(),
             style= MaterialTheme.typography.titleLarge,
             fontWeight = FontWeight.Bold,
-            modifier = Modifier.padding(8.dp)
+            modifier = Modifier.padding(4.dp)
         )
         ModesAndBosses(items.bankaraOpen.rule, versus.rules[items.bankaraOpen.rule]   )
     }

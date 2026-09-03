@@ -1,6 +1,5 @@
 package com.powerdino.splatoon3_companion.ui.composables
 
-import android.icu.util.Calendar
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -11,7 +10,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.powerdino.splatoon3_companion.R
 import kotlin.time.Clock
-import kotlin.time.Duration.Companion.hours
 import kotlin.time.Instant
 
 @Composable
@@ -33,8 +31,13 @@ fun TextSchedule(
 
     Text(
         text = textSchedule,
-        style = MaterialTheme.typography.displaySmall,
-        modifier = Modifier.padding(8.dp),
+        style = MaterialTheme.typography.headlineLarge,
+        modifier = Modifier.padding(
+            start=4.dp,
+            bottom = 4.dp,
+            end = 4.dp,
+            top = 8.dp
+        ),
         fontWeight = FontWeight.Bold
     )
 }

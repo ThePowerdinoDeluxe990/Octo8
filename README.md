@@ -21,6 +21,7 @@ Debug releases:<a href="https://nightly.link/ThePowerdinoDeluxe990/Octo8/workflo
 
 TODO: 
 * Widgets
+* Eggstra work
 
 API: https://splatoon.oatmealdome.me/
 

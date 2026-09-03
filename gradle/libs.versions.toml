@@ -1,5 +1,5 @@
 [versions]
-agp = "9.3.2"
+agp = "9.4.0"
 coilComposeVersion = "2.7.0"
 desugar_jdk_libs = "2.1.5"
 glanceAppwidgetPreview = "1.2.0"

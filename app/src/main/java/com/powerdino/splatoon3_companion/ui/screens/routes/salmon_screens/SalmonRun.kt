@@ -19,9 +19,17 @@ import com.powerdino.splatoon3_companion.ui.screens.routes.salmonComposables.Sal
 @Composable
 fun SalmonRun(
     salmonSchedule: Salmon,
-    salmonResources: SalmonResources
+    salmonResources: SalmonResources,
 ){
     LazyColumn{
+        item{
+
+            Eggstra(
+                eggstraSchedule = salmonSchedule.teamContest[0],
+                salmonResources = salmonResources
+            )
+        }
+
         itemsIndexed(salmonSchedule.normal){ index, items ->
 
             TextSchedule(
@@ -60,9 +68,7 @@ fun SalmonRun(
                         else -> listOfWeapons.add(
                             salmonResources.weaponsmain[weapons.toString(),].toString()
                         )
-
                     }
-
                 }
 
                 SalmonMapCard(
