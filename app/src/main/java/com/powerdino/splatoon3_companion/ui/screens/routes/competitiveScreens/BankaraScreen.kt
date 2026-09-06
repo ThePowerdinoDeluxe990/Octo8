@@ -43,33 +43,31 @@ fun BankaraScreen(
             fontWeight = FontWeight.Bold,
             modifier = Modifier.padding(
                 bottom = 4.dp,
-                top = 4.dp,
-                start = 4.dp,
+                top = 8.dp,
+                start = 12.dp,
                 end = 2.dp
             )
         )
         ModesAndBosses(items.bankara.rule, versus.rules[items.bankara.rule])
     }
     Row(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier
+            .padding(horizontal = 12.dp)
+            .fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.Center
+        horizontalArrangement = Arrangement.spacedBy(4.dp)
     ) {
         items.bankara.stages.forEach {
             Box(
                 modifier = Modifier
-                    .padding(horizontal = 4.dp)
                     .weight(1f)
             ) {
                 MapCard(
                     mapName = versus.stages[it.toString()].toString(),
                     mapImage = listOfMpMaps[it - 1].imageState
                 )
-
             }
-
         }
-
     }
     Spacer(
         modifier = Modifier.padding(12.dp)
@@ -79,20 +77,21 @@ fun BankaraScreen(
             text= versus.modes["BankaraOpen"].toString(),
             style= MaterialTheme.typography.titleLarge,
             fontWeight = FontWeight.Bold,
-            modifier = Modifier.padding(4.dp)
+            modifier = Modifier.padding(12.dp)
         )
         ModesAndBosses(items.bankaraOpen.rule, versus.rules[items.bankaraOpen.rule]   )
     }
 
     Row(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier
+            .padding(horizontal = 12.dp)
+            .fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.Center
+        horizontalArrangement = Arrangement.spacedBy(4.dp)
     ){
         items.bankaraOpen.stages.forEach {
             Box(
                 modifier = Modifier
-                    .padding(horizontal = 4.dp)
                     .weight(1f)
             ){
                 MapCard(

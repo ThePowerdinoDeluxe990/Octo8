@@ -63,17 +63,18 @@ fun SplatfestScreen(
                                 text= versusResources.modes["FestRegular"].toString(),
                                 style= MaterialTheme.typography.titleLarge,
                                 fontWeight = FontWeight.Bold,
-                                modifier = Modifier.padding(4.dp)
+                                modifier = Modifier.padding(12.dp)
                             )
 
                             Row(
-                                modifier = Modifier.fillMaxWidth(),
+                                modifier = Modifier.fillMaxWidth()
+                                    .padding(horizontal = 12.dp),
                                 verticalAlignment = Alignment.CenterVertically,
-                                horizontalArrangement = Arrangement.Center
+                                horizontalArrangement = Arrangement.spacedBy(4.dp)
                             ) {
                                 items.festRegular.stages.forEach {
                                     Box(
-                                        modifier = Modifier.padding(horizontal = 4.dp)
+                                        modifier = Modifier
                                             .weight(1f)
                                     ) {
                                         MapCard(
@@ -94,17 +95,18 @@ fun SplatfestScreen(
                                 text= versusResources.modes["FestChallenge"].toString(),
                                 style= MaterialTheme.typography.titleLarge,
                                 fontWeight = FontWeight.Bold,
-                                modifier = Modifier.padding(4.dp)
+                                modifier = Modifier.padding(12.dp)
                             )
 
                             Row(
-                                modifier = Modifier.fillMaxWidth(),
+                                modifier = Modifier.fillMaxWidth()
+                                    .padding(horizontal = 12.dp),
                                 verticalAlignment = Alignment.CenterVertically,
-                                horizontalArrangement = Arrangement.Center
+                                horizontalArrangement = Arrangement.spacedBy(4.dp)
                             ) {
                                 items.festChallenge.stages.forEach {
                                     Box(
-                                        modifier = Modifier.padding(horizontal = 4.dp)
+                                        modifier = Modifier
                                             .weight(1f)
                                     ) {
                                         MapCard(
@@ -125,17 +127,19 @@ fun SplatfestScreen(
                                     text= versusResources.modes["FestTriColor"].toString(),
                                     style= MaterialTheme.typography.titleLarge,
                                     fontWeight = FontWeight.Bold,
-                                    modifier = Modifier.padding(4.dp)
+                                    modifier = Modifier.padding(12.dp)
                                 )
 
                                 Row(
-                                    modifier = Modifier.fillMaxWidth(),
+                                    modifier = Modifier
+                                        .padding(horizontal = 12.dp)
+                                        .fillMaxWidth(),
                                     verticalAlignment = Alignment.CenterVertically,
-                                    horizontalArrangement = Arrangement.Center
+                                    horizontalArrangement = Arrangement.spacedBy(4.dp)
                                 ) {
                                     items.festTriColor.stages.forEach {
                                         Box(
-                                            modifier = Modifier.padding(horizontal = 4.dp)
+                                            modifier = Modifier
                                                 .weight(1f)
                                         ) {
                                             MapCard(

@@ -1,13 +1,14 @@
 package com.powerdino.splatoon3_companion.ui.composables
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.material3.AssistChip
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.LocalRippleConfiguration
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -71,27 +72,33 @@ fun ModesAndBosses(
             imageOfMode = R.drawable.s3_icon_triumvirate
         }
     }
-    Row(
-        modifier = Modifier.padding(
-            vertical = 4.dp,
-            horizontal = 2.dp
-        ),
-        verticalAlignment = Alignment.CenterVertically
-    ){
-        Image(
-            painter = painterResource(imageOfMode),
-            contentDescription = nameOfMode,
-            modifier = Modifier
-                .padding(horizontal = 4.dp)
-                .size(32.dp)
-        )
 
-        Text(
-            text= bossName.toString()
+    CompositionLocalProvider(LocalRippleConfiguration provides null) {
+        AssistChip(
+
+            onClick = {},
+            modifier = Modifier.padding(
+                start = 12.dp
+            ),
+            label = {
+                Text(
+                    text = bossName.toString()
+                )
+            },
+            leadingIcon = @Composable {
+                Image(
+                    painter = painterResource(imageOfMode),
+                    contentDescription = nameOfMode,
+                    modifier = Modifier
+                        .padding(start=2.dp)
+                        .size(24.dp)
+                )
+            }
         )
     }
-
 }
+
+
 
 
 @Preview

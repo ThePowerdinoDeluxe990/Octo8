@@ -16,6 +16,7 @@
     <string name="no_splatfest">Al momento non sono disponibili Splatfest.</string>
     <string name="no_general">Al momento non sono disponibili fasi</string>
 
+    <string name="wave">Onda</string>
     <string name="libs_used">Librerie utilizzate</string>
     <string name="settings_lang">Lingua</string>
     <string name="settings_lang_sub">Cambia la lingua dell\'app</string>

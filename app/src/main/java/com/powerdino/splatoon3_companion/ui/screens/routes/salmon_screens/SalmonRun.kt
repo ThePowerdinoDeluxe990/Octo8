@@ -2,12 +2,16 @@ package com.powerdino.splatoon3_companion.ui.screens.routes.salmon_screens
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import com.powerdino.splatoon3_companion.data.lists.SalmonRunStageImage
 import com.powerdino.splatoon3_companion.model.salmon_run.Salmon
 import com.powerdino.splatoon3_companion.model.salmon_run.resources.SalmonResources
@@ -23,11 +27,12 @@ fun SalmonRun(
 ){
     LazyColumn{
         item{
-
-            Eggstra(
-                eggstraSchedule = salmonSchedule.teamContest[0],
-                salmonResources = salmonResources
-            )
+            if(!salmonSchedule.teamContest.isEmpty()){
+                Eggstra(
+                    eggstraSchedule = salmonSchedule.teamContest[0],
+                    salmonResources = salmonResources
+                )
+            }
         }
 
         itemsIndexed(salmonSchedule.normal){ index, items ->
@@ -82,6 +87,10 @@ fun SalmonRun(
                         else -> "Shirt"
                     }.toString(),
                     false
+                )
+
+                Spacer(
+                    modifier = Modifier.padding(12.dp)
                 )
             }
         }

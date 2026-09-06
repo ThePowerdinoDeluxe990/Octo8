@@ -40,14 +40,15 @@ fun XBattlesScreen(
     }
 
     Row(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier
+            .padding(horizontal = 12.dp)
+            .fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.Center
+        horizontalArrangement = Arrangement.spacedBy(4.dp)
     ) {
         items.x.stages.forEach {
             Box(
                 modifier = Modifier
-                    .padding(horizontal = 4.dp)
                     .weight(1f)
             ) {
                 MapCard(

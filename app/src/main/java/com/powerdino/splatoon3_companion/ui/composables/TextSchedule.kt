@@ -33,9 +33,9 @@ fun TextSchedule(
         text = textSchedule,
         style = MaterialTheme.typography.headlineLarge,
         modifier = Modifier.padding(
-            start=4.dp,
+            start=12.dp,
             bottom = 4.dp,
-            end = 4.dp,
+            end = 12.dp,
             top = 8.dp
         ),
         fontWeight = FontWeight.Bold

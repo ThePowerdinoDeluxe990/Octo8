@@ -19,5 +19,6 @@
     <string name="settings_lang_sub">앱 언어를 변경합니다</string>
     <string name="gear">장비</string>
 
+    <string name="wave">파도</string>
     <string name="libs_used">사용된 라이브러리</string>
 </resources>

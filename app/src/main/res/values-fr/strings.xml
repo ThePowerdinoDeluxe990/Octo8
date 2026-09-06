@@ -19,5 +19,6 @@
     <string name="settings_lang_sub">Changer la langue de l\'application</string>
     <string name="comp">Compétitif</string>
 
+    <string name="wave">Vague</string>
     <string name="gear">l\' équipement</string>
 </resources>

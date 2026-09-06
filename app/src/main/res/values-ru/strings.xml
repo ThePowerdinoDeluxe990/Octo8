@@ -19,5 +19,6 @@
     <string name="settings_lang_sub">Изменить язык приложения</string>
     <string name="gear">Одежда</string>
 
+    <string name="wave">Волна</string>
     <string name="libs_used">Используемые библиотеки</string>
 </resources>

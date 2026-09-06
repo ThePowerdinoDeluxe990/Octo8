@@ -34,5 +34,6 @@
     <string name="settings_lang">Language</string>
     <string name="settings_lang_sub">Change the app language</string>
     <string name="gear">Gear</string>
+    <string name="wave">Wave</string>
     <string name="libs_used">Used libraries</string>
 </resources>

@@ -11,10 +11,13 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.AssistChip
+import androidx.compose.material3.LocalRippleConfiguration
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -52,8 +55,8 @@ fun ChallengeScreen(
                     modifier = Modifier.padding(
                         top = 3.dp,
                         bottom = 3.dp,
-                        start = 4.dp,
-                        end = 4.dp
+                        start = 12.dp,
+                        end = 12.dp
 
                     )
                 ) {
@@ -65,7 +68,7 @@ fun ChallengeScreen(
                             style= MaterialTheme.typography.titleLarge,
                             fontWeight = FontWeight.Bold,
                             modifier = Modifier.padding(
-                                bottom = 8.dp,
+                                bottom = 4.dp,
                                 top = 8.dp,
                                 start = 8.dp,
                                 end = 2.dp
@@ -75,7 +78,7 @@ fun ChallengeScreen(
                             text= resourcesVersus.leagueevents[element.eventType]?.subtitle.toString(),
                             style= MaterialTheme.typography.bodyLarge,
                             modifier = Modifier.padding(
-                                bottom = 8.dp,
+                                bottom = 2.dp,
                                 top = 8.dp,
                                 start = 8.dp,
                                 end = 2.dp
@@ -87,11 +90,46 @@ fun ChallengeScreen(
                             style= MaterialTheme.typography.bodyMedium,
                             modifier = Modifier.padding(
                                 bottom = 8.dp,
-                                top = 8.dp,
+                                top = 4.dp,
                                 start = 8.dp,
                                 end = 2.dp
                             )
                         )
+
+                        FlowRow(
+                            horizontalArrangement = Arrangement.SpaceAround,
+                            modifier = Modifier
+                                .fillMaxWidth(),
+                        ) {
+                            element.phases.forEach {
+                                val secondInstant = Instant.parse(it.startTime).toLocalDateTime(TimeZone.currentSystemDefault())
+
+                                var currentTime: String = secondInstant.toString()
+
+                                if (!DateFormat.is24HourFormat(context)) {
+                                    currentTime = secondInstant.format(
+                                        format12h
+                                    )
+                                }
+                                CompositionLocalProvider(LocalRippleConfiguration provides null) {
+                                    AssistChip(
+                                        onClick = {},
+                                        modifier = Modifier.padding(
+                                            start = 4.dp
+                                        ),
+                                        label = {
+                                            Row {
+                                                Text(
+                                                    text = currentTime
+                                                        .replace("Z", "")
+                                                        .replace("T", " ")
+                                                )
+                                            }
+                                        },
+                                    )
+                                }
+                            }
+                        }
                     }
                 }
 
@@ -104,13 +142,15 @@ fun ChallengeScreen(
                 ModesAndBosses(element.rule, resourcesVersus.rules[element.rule])
             }
             Row(
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 12.dp),
                 verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.Center
+                horizontalArrangement = Arrangement.spacedBy(4.dp)
             ){
                 element.stages.forEach{ stage->
                     Box(
-                        modifier = Modifier.padding(horizontal = 4.dp)
+                        modifier = Modifier
                             .weight(1f)
                     ){
                         MapCard(
@@ -119,55 +159,11 @@ fun ChallengeScreen(
                             mapImage = listOfMpMaps[stage-1].imageState
                         )
                     }
-
                 }
             }
-            OutlinedCard(
-                modifier = Modifier.padding(
-                    top = 8.dp,
-                    bottom = 3.dp,
-                    start = 4.dp,
-                    end = 4.dp
-                )
-            ) {
-                FlowRow(
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    modifier = Modifier
-                        .padding(8.dp)
-                        .fillMaxWidth(),
-                ) {
-                    element.phases.forEach {
-                        val secondInstant = Instant.parse(it.startTime).toLocalDateTime(TimeZone.currentSystemDefault())
-
-                        var currentTime: String = secondInstant.toString()
-
-                        if (!DateFormat.is24HourFormat(context)) {
-                            currentTime = secondInstant.format(
-                                format12h
-                            )
-                        }
-                        Text(
-                            currentTime
-                                .replace("Z", "")
-                                .replace("T", " "),
-                            modifier = Modifier.padding(
-                                horizontal = 8.dp
-                            ),
-                            style = MaterialTheme.typography.bodyMedium
-
-                        )
-
-                    }
-                }
-            }
-
             Spacer(
                 modifier = Modifier.padding(12.dp)
             )
-
         }
     }
 }
-
-
-

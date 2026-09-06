@@ -7,9 +7,10 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.CalendarToday
 import androidx.compose.material3.AssistChip
 import androidx.compose.material3.Icon
+import androidx.compose.material3.LocalRippleConfiguration
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
@@ -39,42 +40,38 @@ fun SchedulesTimeComposables(
         amPmHour();char(':');minute();
         char(' '); amPmMarker("AM", "PM")
     }
-
     if (!DateFormat.is24HourFormat(context)) {
         currentTime = secondInstant.format(
             format12h
         )
     }
 
+    CompositionLocalProvider(LocalRippleConfiguration provides null) {
+        AssistChip(
+            onClick = {},
+            modifier = Modifier.padding(
+                start = 12.dp
 
-    AssistChip(
-        modifier = Modifier.padding(
-            start = 4.dp
-        ),
-        onClick = {},
-        label = {
-            Row {
-               Text(
-                   text = currentTime
-                       .replace("Z", "")
-                       .replace("T", " ")
-               )
+            ),
+            label = {
+                Row {
+                    Text(
+                        text = currentTime
+                            .replace("Z", "")
+                            .replace("T", " ")
+                    )
+                }
+            },
+            leadingIcon = {
+                Icon(
+                    imageVector = Icons.Rounded.CalendarToday,
+                    contentDescription = "Calendar",
+                    modifier = Modifier.padding(
+                        end = 2.dp,
+                        bottom = 2.dp
+                    )
+                )
             }
-        },
-        leadingIcon = {
-            Icon(
-                imageVector = Icons.Rounded.CalendarToday,
-                contentDescription = "Calendar",
-                modifier = Modifier.padding(end = 2.dp,
-                    bottom = 2.dp)
-            )
-        }
-    )
-    Row(
-        modifier = Modifier.padding(
-            vertical = 0.5.dp,
-            horizontal = 10.dp,
-        ),
-        verticalAlignment = Alignment.CenterVertically,
-    ){}
+        )
+    }
 }

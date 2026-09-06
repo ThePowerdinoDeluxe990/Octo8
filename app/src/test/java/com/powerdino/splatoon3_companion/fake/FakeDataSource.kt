@@ -12,10 +12,8 @@ import com.powerdino.splatoon3_companion.model.salmon_run.RewardGear
 import com.powerdino.splatoon3_companion.model.salmon_run.Salmon
 import com.powerdino.splatoon3_companion.model.salmon_run.SalmonNormal
 import com.powerdino.splatoon3_companion.model.salmon_run.resources.Enemy
-import com.powerdino.splatoon3_companion.model.salmon_run.resources.Events
 import com.powerdino.splatoon3_companion.model.salmon_run.resources.Modes
 import com.powerdino.splatoon3_companion.model.salmon_run.resources.SalmonResources
-import com.powerdino.splatoon3_companion.model.salmon_run.resources.Tides
 
 object FakeDataSource {
     fun getSplatoonData(): Data{

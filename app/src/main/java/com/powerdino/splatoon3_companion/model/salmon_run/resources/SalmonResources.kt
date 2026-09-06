@@ -9,7 +9,7 @@ data class SalmonResources(
     @SerialName("enemy")
     val enemy: Map<String,String>,
     @SerialName("events")
-    val events: Events,
+    val events: Map<String,String>,
     @SerialName("gear/clothes")
     val gearclothes: Map<String, String>,
     @SerialName("gear/head")
@@ -23,7 +23,7 @@ data class SalmonResources(
     @SerialName("stages")
     val stages: Map<String, String>,
     @SerialName("tides")
-    val tides: Tides,
+    val tides: Map<String,String>,
     @SerialName("weapons/main")
     val weaponsmain: Map<String, String>,
 

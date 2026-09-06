@@ -17,5 +17,7 @@
     <string name="settings_lang">Taal</string>
     <string name="settings_lang_sub">Wijzig de app-taal</string>
     <string name="gear">Uitrusting</string>
+
+    <string name="wave">Golf</string>
     <string name="libs_used">Gebruikte bibliotheken</string>
 </resources>

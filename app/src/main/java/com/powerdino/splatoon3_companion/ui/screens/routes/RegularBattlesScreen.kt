@@ -56,13 +56,15 @@ fun RegularBattlesScreen (
                 )
 
                 Row(
-                    modifier = Modifier.fillMaxWidth(),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 12.dp),
                     verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.Center
+                    horizontalArrangement = Arrangement.spacedBy(4.dp)
                 ){
                     items.regular.stages.forEach {
                         Box(
-                            modifier = Modifier.padding(horizontal = 4.dp)
+                            modifier = Modifier
                                 .weight(1f)
                         ){
                             MapCard(

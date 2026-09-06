@@ -17,5 +17,7 @@
     <string name="settings_lang">Sprache</string>
     <string name="settings_lang_sub">App‑Sprache ändern</string>
     <string name="gear">Ausrüstung</string>
+
+    <string name="wave">Welle</string>
     <string name="libs_used">Verwendete Bibliotheken</string>
 </resources>

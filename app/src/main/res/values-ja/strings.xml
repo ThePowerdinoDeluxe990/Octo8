@@ -18,4 +18,6 @@
     <string name="event">イベント</string>
     <string name="about_my">私について</string>
     <string name="libs_used">使用したライブラリ</string>
+
+    <string name="wave">波</string>
 </resources>
