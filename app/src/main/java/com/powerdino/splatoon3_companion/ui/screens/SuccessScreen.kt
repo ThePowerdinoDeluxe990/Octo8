@@ -21,6 +21,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -30,6 +31,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation3.runtime.NavBackStack
 import androidx.navigation3.runtime.NavKey
 import androidx.navigation3.runtime.entryProvider
@@ -47,6 +49,7 @@ import com.powerdino.splatoon3_companion.ui.screens.routes.EventScreen
 import com.powerdino.splatoon3_companion.ui.screens.routes.RegularBattlesScreen
 import com.powerdino.splatoon3_companion.ui.screens.routes.SalmonRunScreen
 import com.powerdino.splatoon3_companion.ui.screens.routes.SettingsScreen
+import com.powerdino.splatoon3_companion.ui.viewModels.SettingsViewModel
 import com.powerdino.splatoon3_companion.ui.viewModels.SplatoonViewModel
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3ExpressiveApi::class)
@@ -58,18 +61,23 @@ fun SuccessScreen(
     versusResources: ResourcesVersus,
     eventSchedules: List<EventItem>,
     mainBackStack: NavBackStack<NavKey>,
-    viewModel: SplatoonViewModel
+    viewModel: SplatoonViewModel,
+    settingsViewModel: SettingsViewModel = viewModel(
+        factory = SettingsViewModel.Factory
+    )
 ){
-    val backStack = rememberNavBackStack(RegularBattlesScreen)
-
-    var expanded by remember { mutableStateOf(false) }
-
+    val screenState = settingsViewModel.uiState.collectAsState().value
     val bottomNavItems = listOf(
         BottomScreens.Versus,
         BottomScreens.Competitive,
         BottomScreens.Salmon,
         BottomScreens.Events
     )
+
+    val backStack = rememberNavBackStack(
+        bottomNavItems[screenState.screenLocation].route
+    )
+    var expanded by remember { mutableStateOf(false) }
 
     Scaffold (
         topBar = {

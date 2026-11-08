@@ -83,10 +83,7 @@ val SalmonRunWeapons = listOf<WeaponsSalmon>(
         id = listOf(1030, 11030,21030),
         image = "https://cdn.wikimg.net/en/splatoonwiki/images/thumb/d/d2/S3_Weapon_Main_Flingza_Roller.png/64px-S3_Weapon_Main_Flingza_Roller.png"
     ),
-    WeaponsSalmon(
-        id = listOf(1040, 21040),
-        image = "https://cdn.wikimg.net/en/splatoonwiki/images/thumb/8/8e/S3_Weapon_Main_Big_Swig_Roller.png/64px-S3_Weapon_Main_Big_Swig_Roller.png"
-    ),
+
 
     //Chargers
     WeaponsSalmon(

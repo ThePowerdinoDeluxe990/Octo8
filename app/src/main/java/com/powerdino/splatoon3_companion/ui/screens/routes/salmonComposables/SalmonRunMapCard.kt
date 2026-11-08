@@ -1,5 +1,6 @@
 package com.powerdino.splatoon3_companion.ui.screens.routes.salmonComposables
 
+import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement

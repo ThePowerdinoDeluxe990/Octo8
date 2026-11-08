@@ -80,17 +80,21 @@ class SplatoonAppWidget : GlanceAppWidget() {
                 )
             }
 
+            WidgetRegular(
+                maps,
+                width = currentWidth,
+                height = currentHeight,
+                resources = resources,
+                context = context
+            )
+            /*
             if(festMaps.isNullOrEmpty()){
-                WidgetRegular(
-                    maps,
-                    width = currentWidth,
-                    height = currentHeight,
-                    resources = resources,
-                    context = context
-                )
+
             }else{
                 Text("Splatfest twin")
             }
+
+             */
 
         }
     }

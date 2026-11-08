@@ -58,6 +58,7 @@ kotlin{
 
 dependencies {
     coreLibraryDesugaring(libs.desugar.jdk.libs)
+    implementation(libs.androidx.datastore.preferences)
     implementation(libs.kotlinx.datetime)
     implementation(libs.aboutlibraries.core)
     implementation(libs.aboutlibraries.compose.m3)
